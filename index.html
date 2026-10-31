@@ -119,21 +119,13 @@ margin:12px auto;border-radius:12px;border:2px solid #e000ff;background:white;
 text-align:center;font-size:25px;font-weight:bold;color:#ff5bdc;
 margin:10px;text-shadow:0 0 12px #ff00d4;
 }
-
-/* SMALL WARNING UNDER TIMER */
 .fraud-warning{
-text-align:center;
-font-size:10px;
-line-height:1.4;
-color:#ffb7c9;
-background:rgba(100,0,30,.25);
-border:1px solid #ff315e;
-border-radius:8px;
-padding:7px 6px;
-margin:5px 0 12px;
+text-align:center;font-size:10px;line-height:1.4;
+color:#ffb7c9;background:rgba(100,0,30,.25);
+border:1px solid #ff315e;border-radius:8px;
+padding:7px 6px;margin:5px 0 12px;
 box-shadow:0 0 9px #ff174422;
 }
-
 .field{
 width:100%;padding:12px;margin:6px 0;border-radius:8px;
 border:1px solid #8500c9;background:#10001e;color:white;outline:none;
@@ -149,32 +141,15 @@ color:white;border:0;border-radius:9px;font-weight:bold;cursor:pointer;
 display:none;text-align:center;color:#ff5555;
 font-size:22px;font-weight:bold;padding:20px 0;
 }
-
-/* PAYMENT NOT DETECTED MESSAGE */
 #paymentMessage{
-display:none;
-text-align:center;
-padding:18px 10px;
-margin-top:12px;
-border:1px solid #ff315e;
-border-radius:12px;
-background:rgba(100,0,25,.25);
-box-shadow:0 0 15px #ff174455;
+display:none;text-align:center;padding:18px 10px;margin-top:12px;
+border:1px solid #ff315e;border-radius:12px;
+background:rgba(100,0,25,.25);box-shadow:0 0 15px #ff174455;
 }
-#paymentMessage h3{
-color:#ff456c;
-font-size:19px;
-margin-bottom:9px;
-}
-#paymentMessage p{
-color:#ffd5df;
-font-size:13px;
-line-height:1.5;
-}
+#paymentMessage h3{color:#ff456c;font-size:19px;margin-bottom:9px}
+#paymentMessage p{color:#ffd5df;font-size:13px;line-height:1.5}
 #paymentMessage button{
-margin-top:12px;
-padding:10px 17px;
-border:0;border-radius:8px;
+margin-top:12px;padding:10px 17px;border:0;border-radius:8px;
 background:linear-gradient(90deg,#7900ff,#ed008d);
 color:white;font-weight:bold;
 }
@@ -207,7 +182,6 @@ footer{padding:5px}
 </div>
 
 <div class="container">
-
 <header>
 <div class="logo">🔥 FF CARD STORE</div>
 <div class="subtitle">PREMIUM GAMING STORE</div>
@@ -243,7 +217,6 @@ Scan QR Code to make payment
 
 <div class="timer" id="timer">10:00</div>
 
-<!-- YOUR WARNING MESSAGE -->
 <div class="fraud-warning">
 नकली पेमेंट स्क्रीनशॉट या फर्जी ऐप से पेमेंट दिखाने पर ऑर्डर रिजेक्ट होगा।
 </div>
@@ -274,20 +247,10 @@ Payment is subject to manual verification. Never share your UPI PIN or OTP.
 
 <footer>
 <p>FOLLOW US</p>
-
-<a class="social"
-href="https://www.youtube.com/@vg_sveg_pro"
-target="_blank"
-rel="noopener noreferrer">▶ YouTube</a>
-
-<a class="social"
-href="https://t.me/vgsvegpro"
-target="_blank"
-rel="noopener noreferrer">✈ Telegram</a>
-
+<a class="social" href="https://www.youtube.com/@vg_sveg_pro" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+<a class="social" href="https://t.me/vgsvegpro" target="_blank" rel="noopener noreferrer">✈ Telegram</a>
 <p style="margin-top:5px">© 2026 FF CARD STORE</p>
 </footer>
-
 </div>
 
 <script>
@@ -301,7 +264,6 @@ const prices=[
 
 function createProducts(elementId,category){
 const area=document.getElementById(elementId);
-
 prices.forEach((price,index)=>{
 const balance=(index+1)*1000;
 const item=document.createElement("div");
@@ -329,11 +291,24 @@ area.appendChild(item);
 createProducts("cardProducts","FF CARD");
 createProducts("redeemProducts","REDEEM CODE");
 
+/* FIXED PAGE NAVIGATION */
 function showPage(id){
-document.getElementById("home").style.display="none";
-document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-document.getElementById("payment").style.display="none";
+const home=document.getElementById("home");
+const payment=document.getElementById("payment");
+const pages=document.querySelectorAll(".page");
+
+payment.style.display="none";
+
+pages.forEach(page=>{
+page.classList.remove("active");
+});
+
+if(id==="home"){
+home.style.display="flex";
+}else{
+home.style.display="none";
 document.getElementById(id).classList.add("active");
+}
 }
 
 let timerInterval=null;
@@ -395,7 +370,6 @@ alert("Please fill all details.");
 return;
 }
 
-/* This is not actual payment verification. */
 document.getElementById("paymentFields").style.display="none";
 document.getElementById("paymentMessage").style.display="block";
 }
@@ -408,7 +382,7 @@ document.getElementById("paymentFields").style.display="block";
 function closePayment(){
 clearInterval(timerInterval);
 document.getElementById("payment").style.display="none";
-document.getElementById("home").style.display="flex";
+showPage("home");
 }
 </script>
 </body>
