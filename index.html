@@ -4,212 +4,165 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090509">
-<title>FF CARD STORE | Premium Digital Store</title>
+<meta name="theme-color" content="#08050c">
+<title>FF CARD STORE</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
- color:#fff;font-family:Arial,sans-serif;
- background:#08060b;overflow-x:hidden;min-height:100vh;
+ background:#08050c;color:#fff;
+ font-family:Arial,sans-serif;min-height:100vh;
+ overflow-x:hidden;
 }
 body:before{
- content:"";position:fixed;inset:-50%;z-index:-2;pointer-events:none;
+ content:"";position:fixed;inset:-50%;z-index:-2;
  background:
- radial-gradient(circle at 20% 20%,#ff153a35,transparent 30%),
- radial-gradient(circle at 80% 30%,#7715ff35,transparent 32%),
- radial-gradient(circle at 50% 80%,#ff174435,transparent 35%);
+ radial-gradient(circle at 20% 20%,#ff174455,transparent 30%),
+ radial-gradient(circle at 80% 30%,#8015ff44,transparent 32%),
+ radial-gradient(circle at 50% 80%,#ff174433,transparent 35%);
  animation:bgmove 12s ease-in-out infinite alternate;
 }
-@keyframes bgmove{
- from{transform:translate(0,0) rotate(0)}
- to{transform:translate(5%,5%) rotate(10deg)}
-}
-.particles{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+@keyframes bgmove{to{transform:translate(5%,5%) rotate(10deg)}}
+.particles{position:fixed;inset:0;z-index:-1;pointer-events:none}
 .particles i{
- position:absolute;width:3px;height:3px;border-radius:50%;
- background:#ff3a62;box-shadow:0 0 12px #ff1744;
+ position:absolute;bottom:-10px;width:3px;height:3px;
+ border-radius:50%;background:#ff3157;
+ box-shadow:0 0 12px #ff1744;
  animation:float 9s linear infinite;
 }
-.particles i:nth-child(1){left:10%;top:100%}
-.particles i:nth-child(2){left:25%;top:100%;animation-delay:2s}
-.particles i:nth-child(3){left:45%;top:100%;animation-delay:4s}
-.particles i:nth-child(4){left:65%;top:100%;animation-delay:1s}
-.particles i:nth-child(5){left:85%;top:100%;animation-delay:3s}
-.particles i:nth-child(6){left:55%;top:100%;animation-delay:5s}
-.particles i:nth-child(7){left:35%;top:100%;animation-delay:6s}
-@keyframes float{
- 0%{transform:translateY(0);opacity:0}
- 15%{opacity:1}85%{opacity:.8}
- 100%{transform:translateY(-110vh);opacity:0}
-}
+.particles i:nth-child(1){left:10%;animation-delay:0s}
+.particles i:nth-child(2){left:25%;animation-delay:2s}
+.particles i:nth-child(3){left:45%;animation-delay:4s}
+.particles i:nth-child(4){left:65%;animation-delay:1s}
+.particles i:nth-child(5){left:85%;animation-delay:3s}
+.particles i:nth-child(6){left:55%;animation-delay:5s}
+.particles i:nth-child(7){left:35%;animation-delay:6s}
+@keyframes float{to{transform:translateY(-110vh);opacity:0}}
+
 header{
- position:sticky;top:0;z-index:10;background:#100d14ef;
- backdrop-filter:blur(15px);border-bottom:1px solid #ff284533;padding:15px;
+ position:sticky;top:0;z-index:10;
+ padding:16px;background:#100d14ed;
+ backdrop-filter:blur(15px);
+ border-bottom:1px solid #ff284544;
 }
-.nav{
- max-width:1100px;margin:auto;display:flex;align-items:center;
- justify-content:space-between;gap:10px;
-}
+.nav{max-width:1000px;margin:auto;text-align:center}
 .logo{
- font-size:22px;font-weight:1000;color:#ff304e;
- text-shadow:0 0 12px #ff1744,0 0 25px #ff174466;
+ font-size:25px;font-weight:1000;color:#ff3157;
+ text-shadow:0 0 12px #ff1744,0 0 25px #ff1744;
  animation:glow 2s infinite alternate;
 }
-.logo span{color:white}
-@keyframes glow{
- from{text-shadow:0 0 5px #ff1744}
- to{text-shadow:0 0 20px #ff1744,0 0 35px #ff1744}
-}
-.cartbtn,.shopbtn,.add,.checkout,.paybtn{
- background:linear-gradient(120deg,#ff1744,#8b19ff);
- color:white;border:0;border-radius:9px;font-weight:bold;
- box-shadow:0 0 15px #ff174455;cursor:pointer;
-}
-.cartbtn{padding:11px 15px}
+.logo span{color:#fff}
+@keyframes glow{to{text-shadow:0 0 20px #ff1744,0 0 35px #ff1744}}
+
 .hero{
- text-align:center;padding:65px 15px 55px;
- background:linear-gradient(120deg,#240914,#140d25,#300a15);
- background-size:300% 300%;animation:heromove 9s ease infinite;
+ text-align:center;padding:60px 15px 48px;
+ background:linear-gradient(120deg,#290817,#170d29,#300a15);
+ background-size:300% 300%;
+ animation:gradient 9s ease infinite;
  border-bottom:1px solid #ff174433;
 }
-@keyframes heromove{
- 0%{background-position:0% 50%}
- 50%{background-position:100% 50%}
- 100%{background-position:0% 50%}
+@keyframes gradient{50%{background-position:100% 50%}}
+.tag{
+ display:inline-block;border:1px solid #ff355b;
+ color:#ff7188;padding:8px 15px;border-radius:30px;
+ font-size:11px;letter-spacing:2px;margin-bottom:20px;
 }
-.hero .tag{
- display:inline-block;border:1px solid #ff355b;color:#ff617b;
- padding:8px 16px;border-radius:30px;font-size:11px;
- letter-spacing:2px;margin-bottom:20px;
-}
-.hero h1{
- font-size:clamp(32px,8vw,58px);font-weight:1000;
- animation:titlefloat 3s ease-in-out infinite;
- text-shadow:0 0 20px #ff174477;
-}
-.hero h1 span{color:#ff3152}
-@keyframes titlefloat{50%{transform:translateY(-7px)}}
-.hero p{color:#c2b7c6;line-height:1.8;margin-top:16px;font-size:14px}
-.shopbtn{display:inline-block;margin-top:22px;padding:13px 24px;text-decoration:none}
-.container{max-width:1100px;margin:auto;padding:30px 15px}
-.section-title{font-size:23px;margin-bottom:18px}
-.section-title span{color:#ff3657}
-.filters{display:flex;gap:9px;overflow-x:auto;padding-bottom:20px}
-.filters button{
- flex-shrink:0;background:#17131d;color:#ddd;
- border:1px solid #39313f;padding:11px 16px;border-radius:9px;
- cursor:pointer;
-}
-.filters button.active{
+.hero h1{font-size:clamp(32px,8vw,56px);text-shadow:0 0 20px #ff174477}
+.hero h1 span{color:#ff3157}
+.hero p{color:#c2b7c6;line-height:1.8;margin-top:14px;font-size:13px}
+
+.container{max-width:950px;margin:auto;padding:28px 15px}
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:30px}
+.toolbtn{
+ padding:17px 8px;border-radius:12px;color:white;
+ font-size:14px;font-weight:bold;border:1px solid #ff315b;
  background:linear-gradient(120deg,#ff1744,#8515e9);
- border-color:#ff355b;color:white;box-shadow:0 0 15px #ff174455;
+ box-shadow:0 0 18px #ff174455;cursor:pointer;
 }
-.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
-.card{
- background:linear-gradient(145deg,#1b1520,#100d14);
- border:1px solid #39303d;border-radius:15px;padding:13px;
- overflow:hidden;transition:.3s;animation:appear .6s ease both;
+.toolbtn.active{border-color:#fff;box-shadow:0 0 24px #ff1744aa}
+.section-title{font-size:23px;margin-bottom:8px}
+.section-title span{color:#ff3657}
+.subtitle{font-size:12px;color:#aaa;margin-bottom:18px;line-height:1.7}
+
+.offer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.offer{
+ background:linear-gradient(145deg,#211522,#100d15);
+ border:1px solid #493343;border-radius:15px;padding:15px;
+ transition:.25s;animation:appear .5s ease both;
 }
+.offer:hover{transform:translateY(-5px);border-color:#ff3157;box-shadow:0 0 20px #ff174433}
 @keyframes appear{
- from{opacity:0;transform:translateY(20px)}
+ from{opacity:0;transform:translateY(15px)}
  to{opacity:1;transform:translateY(0)}
 }
-.card:hover{
- transform:translateY(-7px);border-color:#ff3156;
- box-shadow:0 0 18px #ff174433,0 0 30px #7514ff22;
+.offer-icon{
+ height:75px;display:grid;place-items:center;
+ font-size:42px;border-radius:10px;
+ background:radial-gradient(circle,#5b1834,#17101d);
+ margin-bottom:12px;
 }
-.pic{
- height:110px;background:radial-gradient(circle,#58172e,#17101d);
- border-radius:10px;display:grid;place-items:center;font-size:46px;
- animation:picglow 3s infinite alternate;
+.offer h3{font-size:15px;margin-bottom:8px}
+.balance{font-size:20px;font-weight:bold;color:#ff5470;margin:8px 0}
+.price-label{font-size:11px;color:#aaa}
+.offer-price{font-size:21px;font-weight:bold;color:#5be88c;margin-top:4px}
+.process{
+ width:100%;padding:12px;margin-top:13px;border:0;
+ border-radius:8px;color:white;font-weight:bold;
+ background:linear-gradient(110deg,#ff1744,#8b16ee);
+ box-shadow:0 0 13px #ff174433;cursor:pointer;
 }
-@keyframes picglow{to{box-shadow:inset 0 0 25px #ff174455}}
-.stock{color:#50e58b;font-size:10px;font-weight:bold;margin-top:13px}
-.card h3{font-size:15px;margin:9px 0}
-.mask{
- background:#09070c;border:1px solid #38303d;border-radius:7px;
- padding:9px;color:#bbb;font-size:12px;letter-spacing:1px;
-}
-.balance{
- margin-top:9px;padding:10px;border-radius:8px;
- background:#10251b;border:1px solid #286b45;
- color:#6df0a0;font-size:12px;font-weight:bold;
-}
-.price{color:#ff4765;font-size:20px;font-weight:bold;margin-top:12px}
-.add{width:100%;margin-top:12px;padding:12px;transition:.2s}
-.add:active{transform:scale(.94)}
-.cartbox{
- background:#17121d;border:1px solid #453144;border-radius:15px;
- padding:18px;margin-top:30px;box-shadow:0 0 25px #ff174422;
-}
-.cartrow{
- display:flex;justify-content:space-between;gap:8px;
- padding:13px 0;border-bottom:1px solid #39303d;font-size:13px;
-}
-.remove{background:none;border:0;color:#ff536d;margin-left:8px;cursor:pointer}
-.total{font-size:21px;margin-top:17px}
-.checkout{width:100%;padding:14px;margin-top:15px}
-.info{
- margin-top:25px;padding:18px;background:#15101a;
- border:1px solid #403142;border-radius:12px;color:#aaa;
- font-size:13px;line-height:1.9;
-}
-.info h3{color:white;margin-bottom:8px}
-.modal{
- display:none;position:fixed;inset:0;background:#000e;z-index:30;
- overflow:auto;padding:12px;backdrop-filter:blur(8px);
-}
+.process:active{transform:scale(.96)}
+
 .panel{
- max-width:420px;margin:20px auto;
- background:linear-gradient(145deg,#201522,#100d15);
- border:1px solid #ff315577;border-radius:18px;padding:20px;
- text-align:center;box-shadow:0 0 35px #ff174444;
- animation:panelin .35s ease;
+ display:none;max-width:480px;margin:25px auto 0;padding:20px;
+ text-align:center;background:linear-gradient(145deg,#211522,#100d15);
+ border:1px solid #ff315577;border-radius:17px;
+ box-shadow:0 0 30px #ff174433;animation:appear .3s ease;
 }
-@keyframes panelin{
- from{opacity:0;transform:scale(.9)}
- to{opacity:1;transform:scale(1)}
-}
-.panel h2{color:#ff3d5c;margin-bottom:12px;text-shadow:0 0 12px #ff1744}
-.amount{font-size:30px;font-weight:bold;color:#5be88c;margin:15px 0}
+.panel h2{color:#ff4564;margin-bottom:10px}
+.amount{font-size:32px;color:#5be88c;font-weight:bold;margin:15px 0}
 .qr{
- width:100%;max-width:270px;aspect-ratio:1;object-fit:contain;
- background:#f5d58f;border-radius:10px;padding:5px;margin:12px auto;
- display:block;
+ display:block;width:100%;max-width:270px;aspect-ratio:1;
+ object-fit:contain;background:#fff;border-radius:10px;
+ padding:5px;margin:15px auto;
 }
-.qr-error{display:none;color:#ff687d;font-size:12px}
-.timer{
- color:#ff405f;font-size:35px;font-weight:bold;margin:13px;
- text-shadow:0 0 15px #ff1744;animation:pulse 1.5s infinite;
-}
-@keyframes pulse{50%{opacity:.6}}
-.small{color:#b9aebc;font-size:12px;line-height:1.7}
+.qr-error{display:none;color:#ff7288;font-size:13px;line-height:1.7;margin:12px 0}
+.small{font-size:12px;color:#b9aebc;line-height:1.8}
 .notice{
- background:#302414;color:#ffdc9c;padding:12px;border-radius:8px;
- margin:13px 0;font-size:12px;line-height:1.6;
+ background:#302414;color:#ffdc9c;padding:12px;
+ border-radius:8px;font-size:12px;line-height:1.7;
+ margin:13px 0;text-align:left;
 }
 .field{
- width:100%;padding:13px;margin:7px 0;background:#09070c;color:white;
- border:1px solid #493747;border-radius:8px;
+ width:100%;padding:13px;margin:7px 0;
+ background:#09070c;color:#fff;border:1px solid #493747;
+ border-radius:8px;outline:none;
 }
-.paybtn{width:100%;padding:13px;margin-top:12px}
+.field:focus{border-color:#ff3157}
+.action{
+ width:100%;padding:13px;margin-top:10px;
+ background:linear-gradient(110deg,#ff1744,#8d16ff);
+ border:0;border-radius:8px;color:white;font-weight:bold;cursor:pointer;
+}
 .close{
- width:100%;padding:12px;margin-top:10px;border:1px solid #555;
- border-radius:8px;background:#29222e;color:white;cursor:pointer;
+ width:100%;padding:12px;margin-top:10px;
+ border:1px solid #555;border-radius:8px;
+ background:#29222e;color:white;cursor:pointer;
 }
+.status{font-size:12px;color:#ffcf83;line-height:1.7;margin-top:12px}
 footer{
- background:#110e15;text-align:center;padding:30px 15px;
+ background:#110e15;text-align:center;padding:28px 15px;
  margin-top:40px;color:#938999;font-size:12px;line-height:2;
  border-top:1px solid #ff174433;
 }
 footer strong{color:#ff3657}
-button{cursor:pointer}
-@media(min-width:650px){.products{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:950px){.products{grid-template-columns:repeat(4,1fr)}}
+
+@media(min-width:650px){.offer-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:950px){.offer-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:360px){.offer-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){
- *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+ *,*::before,*::after{animation:none!important;transition:none!important}
 }
 </style>
 </head>
@@ -222,224 +175,154 @@ button{cursor:pointer}
 <header>
  <div class="nav">
   <div class="logo">FF <span>CARD STORE</span></div>
-  <button class="cartbtn" onclick="document.getElementById('cart').scrollIntoView({behavior:'smooth'})">
-   🛒 CART (<span id="count">0</span>)
-  </button>
  </div>
 </header>
 
 <section class="hero">
  <div class="tag">✦ PREMIUM DIGITAL STORE ✦</div>
  <h1>FF <span>CARD STORE</span></h1>
- <p>GAMING • GIFT CARDS • MEMBERSHIP • CUSTOM CARDS</p>
- <a class="shopbtn" href="#products">EXPLORE STORE ↓</a>
+ <p>BUY CARD • REDEEM CODE</p>
+ <p>Premium Offers | Fast Service | Easy Process</p>
 </section>
 
 <main class="container">
- <h2 class="section-title">✦ Explore <span>Products</span></h2>
 
- <div class="filters">
-  <button class="active" onclick="filter('all',this)">All Products</button>
-  <button onclick="filter('gaming',this)">🎮 Gaming</button>
-  <button onclick="filter('gift',this)">🎁 Gift Cards</button>
-  <button onclick="filter('membership',this)">👑 Membership</button>
-  <button onclick="filter('custom',this)">💎 Custom</button>
+ <div class="tools">
+  <button class="toolbtn active" id="buyTab" onclick="showTool('buy')">💳 BUY CARD</button>
+  <button class="toolbtn" id="redeemTab" onclick="showTool('redeem')">🎟️ REDEEM CODE</button>
  </div>
 
- <div class="products" id="products"></div>
-
- <section class="cartbox" id="cart">
-  <h2 class="section-title">🛒 Shopping Cart</h2>
-  <div id="items" class="small">Your cart is empty.</div>
-  <div class="total">Total: ₹<span id="total">0</span></div>
-  <button class="checkout" onclick="openPayment()">PROCEED TO CHECKOUT →</button>
+ <section id="buySection">
+  <h2 class="section-title">💳 BUY <span>CARD</span></h2>
+  <p class="subtitle">Choose your card offer and press PROCESS to open the payment QR.</p>
+  <div class="offer-grid" id="buyOffers"></div>
  </section>
 
- <div class="info">
-  <h3>🔒 Secure Shopping</h3>
-  • Card numbers are masked on product listings.<br>
-  • Card balance must be confirmed before purchase.<br>
-  • No sensitive payment-card numbers or CVV are collected.<br>
-  • Payment must be verified before any code is delivered.<br>
-  • Only authorized digital products are offered.
- </div>
-</main>
+ <section id="redeemSection" style="display:none">
+  <h2 class="section-title">🎟️ REDEEM <span>CODE</span></h2>
+  <p class="subtitle">Choose your redeem offer and press PROCESS to open the payment QR.</p>
+  <div class="offer-grid" id="redeemOffers"></div>
+ </section>
 
-<div class="modal" id="paymentModal">
- <div class="panel">
-  <h2>FF CARD STORE</h2>
-  <p class="small">SCAN QR CODE TO PAY</p>
+ <section class="panel" id="paymentPanel">
+  <h2>🔒 PAYMENT QR</h2>
+  <p class="small" id="selectedName">Selected offer</p>
   <div class="amount">₹<span id="payAmount">0</span></div>
 
-  <img class="qr" id="paymentQR"
-   src="payment-qr.jpg"
-   alt="Store UPI payment QR"
+  <img class="qr" id="paymentQR" src="payment-qr.jpg"
+   alt="UPI Payment QR"
    onerror="this.style.display='none';document.getElementById('qrError').style.display='block'">
 
-  <p id="qrError" class="qr-error">
-   QR image not found. Upload payment-qr.jpg to your GitHub repository.
+  <p class="qr-error" id="qrError">
+   QR image not found. Upload payment-qr.jpg into the same folder as index.html.
   </p>
 
-  <div class="timer" id="timer">05:00</div>
-  <p class="small">Checkout session countdown</p>
-
   <div class="notice">
-   This is a static UPI QR. The five-minute timer closes this checkout screen only; it does not deactivate the QR at the bank. Always verify the payment in your own UPI/bank account.
+   Scan the QR and pay the exact amount. Enter your name and UPI transaction reference after payment. Always verify the payment in your own bank or UPI account before delivering an order.
   </div>
 
   <input class="field" id="customerName" placeholder="Your Name">
-  <input class="field" id="customerRef" placeholder="UPI Transaction ID (after payment)">
+  <input class="field" id="transactionId" placeholder="UPI Transaction ID / Reference">
 
-  <button class="paybtn" id="submitBtn" onclick="submitPayment()">
-   SUBMIT FOR VERIFICATION
-  </button>
-  <p class="small" id="paymentStatus" style="margin-top:13px"></p>
+  <button class="action" onclick="submitPayment()">SUBMIT PAYMENT REFERENCE</button>
+  <p class="status" id="paymentStatus"></p>
   <button class="close" onclick="closePayment()">CLOSE</button>
+ </section>
+
+ <div class="notice" style="margin-top:25px">
+  <strong>Important:</strong> Offers are descriptions of the products or values available. Only list products you are authorized and able to deliver. Payment references entered here are not automatically saved or verified.
  </div>
-</div>
+
+</main>
 
 <footer>
- <h2 style="color:#ff3657">FF CARD STORE</h2>
- Premium Digital Products Store<br>
+ <h2><strong>FF CARD STORE</strong></h2>
+ Premium Digital Offers Store<br>
  Secure Shopping Experience<br>
  © 2026 FF CARD STORE. All Rights Reserved.
 </footer>
 
 <script>
-/* Replace sample products, prices and masked endings
-   with your real authorized inventory before publishing. */
-
-const products=[
- {id:1,name:"Free Fire Top-Up",cat:"gaming",price:99,icon:"🎮",last:"XXXX",balance:"Verify before purchase"},
- {id:2,name:"Gaming Gift Card",cat:"gaming",price:199,icon:"🕹️",last:"XXXX",balance:"Verify before purchase"},
- {id:3,name:"Digital Gift Card",cat:"gift",price:299,icon:"🎁",last:"XXXX",balance:"Verify before purchase"},
- {id:4,name:"Premium Gift Card",cat:"gift",price:499,icon:"💳",last:"XXXX",balance:"Verify before purchase"},
- {id:5,name:"Premium Membership",cat:"membership",price:199,icon:"👑",last:"XXXX",balance:"Verify before purchase"},
- {id:6,name:"VIP Membership",cat:"membership",price:299,icon:"⭐",last:"XXXX",balance:"Verify before purchase"},
- {id:7,name:"Custom Digital Card",cat:"custom",price:99,icon:"💎",last:"XXXX",balance:"Verify before purchase"},
- {id:8,name:"Custom Gaming Card",cat:"custom",price:149,icon:"🔥",last:"XXXX",balance:"Verify before purchase"}
+const buyOffers=[
+ {name:"Starter Card",balance:"1,000 Balance",price:99,icon:"💳"},
+ {name:"Basic Card",balance:"3,000 Balance",price:250,icon:"💎"},
+ {name:"Silver Card",balance:"4,600 Balance",price:500,icon:"🥈"},
+ {name:"Gold Card",balance:"7,500 Balance",price:1500,icon:"🥇"},
+ {name:"Mega Surprise",balance:"10,000 Balance",price:2000,icon:"🎁"},
+ {name:"Super Surprise",balance:"16,000 Balance",price:3000,icon:"🔥"},
+ {name:"Ultra Surprise",balance:"28,000 Balance",price:5000,icon:"👑"}
 ];
 
-let cart=[];
-let timerInterval=null;
-let remaining=300;
-let orderTotal=0;
-let orderId="";
+const redeemOffers=[
+ {name:"Mini Redeem",balance:"300 Redeem Value",price:150,icon:"🎟️"},
+ {name:"Basic Redeem",balance:"500 Redeem Value",price:250,icon:"🎫"},
+ {name:"Silver Redeem",balance:"1,200 Redeem Value",price:500,icon:"🥈"},
+ {name:"Gold Redeem",balance:"2,500 Redeem Value",price:1000,icon:"🥇"},
+ {name:"Premium Redeem",balance:"3,800 Redeem Value",price:1500,icon:"💎"},
+ {name:"Mega Redeem",balance:"5,500 Redeem Value",price:2200,icon:"🔥"},
+ {name:"Ultra Redeem",balance:"8,000 Redeem Value",price:3000,icon:"👑"}
+];
 
-function render(list){
- document.getElementById("products").innerHTML=list.map(p=>`
-  <div class="card">
-   <div class="pic">${p.icon}</div>
-   <div class="stock">● LISTED PRODUCT</div>
+let selectedOffer=null;
+
+function makeCards(list,type){
+ return list.map((p,index)=>`
+  <article class="offer">
+   <div class="offer-icon">${p.icon}</div>
    <h3>${p.name}</h3>
-   <div class="mask">CARD NO: •••• •••• •••• ${p.last}</div>
-   <div class="balance">💰 CARD BALANCE: ${p.balance}</div>
-   <div class="price">₹${p.price}</div>
-   <button class="add" onclick="add(${p.id})">GET CARD CODE +</button>
-  </div>
+   <div class="balance">${p.balance}</div>
+   <div class="price-label">OFFER PRICE</div>
+   <div class="offer-price">₹${p.price.toLocaleString("en-IN")}</div>
+   <button class="process" onclick="processOffer('${type}',${index})">PROCESS →</button>
+  </article>
  `).join("");
 }
 
-function filter(cat,btn){
- document.querySelectorAll(".filters button").forEach(b=>b.classList.remove("active"));
- btn.classList.add("active");
- render(cat==="all"?products:products.filter(p=>p.cat===cat));
+function renderOffers(){
+ document.getElementById("buyOffers").innerHTML=makeCards(buyOffers,"buy");
+ document.getElementById("redeemOffers").innerHTML=makeCards(redeemOffers,"redeem");
 }
 
-function add(id){
- const p=products.find(x=>x.id===id);
- const found=cart.find(x=>x.id===id);
- if(found)found.qty++;
- else cart.push({...p,qty:1});
- updateCart();
- document.getElementById("cart").scrollIntoView({behavior:"smooth"});
+function showTool(type){
+ const isBuy=type==="buy";
+ document.getElementById("buySection").style.display=isBuy?"block":"none";
+ document.getElementById("redeemSection").style.display=isBuy?"none":"block";
+ document.getElementById("buyTab").classList.toggle("active",isBuy);
+ document.getElementById("redeemTab").classList.toggle("active",!isBuy);
+ closePayment();
 }
 
-function removeItem(id){
- cart=cart.filter(p=>p.id!==id);
- updateCart();
-}
+function processOffer(type,index){
+ const list=type==="buy"?buyOffers:redeemOffers;
+ selectedOffer=list[index];
 
-function updateCart(){
- document.getElementById("count").innerText=
- cart.reduce((s,p)=>s+p.qty,0);
+ document.getElementById("selectedName").innerText=
+ selectedOffer.name+" — "+selectedOffer.balance;
+ document.getElementById("payAmount").innerText=
+ selectedOffer.price.toLocaleString("en-IN");
 
- document.getElementById("total").innerText=
- cart.reduce((s,p)=>s+p.price*p.qty,0);
-
- document.getElementById("items").innerHTML=cart.length?
- cart.map(p=>`
-  <div class="cartrow">
-   <span>${p.name} × ${p.qty}</span>
-   <span>₹${p.price*p.qty}
-    <button class="remove" onclick="removeItem(${p.id})">✕</button>
-   </span>
-  </div>
- `).join(""):"Your cart is empty.";
-}
-
-function openPayment(){
- if(!cart.length){
-  alert("Please add a product first.");
-  return;
- }
-
- orderTotal=cart.reduce((s,p)=>s+p.price*p.qty,0);
- orderId="FF"+Date.now();
-
- document.getElementById("payAmount").innerText=orderTotal;
- document.getElementById("paymentModal").style.display="block";
- document.getElementById("paymentStatus").innerText="";
- document.getElementById("customerRef").value="";
  document.getElementById("customerName").value="";
- document.getElementById("submitBtn").disabled=false;
- document.getElementById("submitBtn").style.opacity="1";
+ document.getElementById("transactionId").value="";
+ document.getElementById("paymentStatus").innerText="";
+
  document.getElementById("paymentQR").style.display="block";
  document.getElementById("qrError").style.display="none";
 
- remaining=300;
- updateTimer();
- clearInterval(timerInterval);
-
- timerInterval=setInterval(()=>{
-  remaining--;
-  updateTimer();
-
-  if(remaining<=0){
-   clearInterval(timerInterval);
-   document.getElementById("timer").innerText="EXPIRED";
-   document.getElementById("paymentQR").style.display="none";
-   document.getElementById("qrError").style.display="block";
-   document.getElementById("qrError").innerText=
-    "Checkout session expired. Start a new checkout.";
-   document.getElementById("submitBtn").disabled=true;
-   document.getElementById("submitBtn").style.opacity=".5";
-   document.getElementById("paymentStatus").innerText=
-    "Checkout expired. No payment has been verified.";
-  }
- },1000);
-}
-
-function updateTimer(){
- const m=Math.floor(remaining/60);
- const s=remaining%60;
- document.getElementById("timer").innerText=
- String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+ document.getElementById("paymentPanel").style.display="block";
+ document.getElementById("paymentPanel").scrollIntoView({behavior:"smooth"});
 }
 
 function closePayment(){
- clearInterval(timerInterval);
- document.getElementById("paymentModal").style.display="none";
+ document.getElementById("paymentPanel").style.display="none";
 }
 
 function submitPayment(){
- if(remaining<=0){
-  alert("Checkout expired. Please start again.");
+ if(!selectedOffer){
+  alert("Please select an offer first.");
   return;
  }
-
  const name=document.getElementById("customerName").value.trim();
- const ref=document.getElementById("customerRef").value.trim();
+ const ref=document.getElementById("transactionId").value.trim();
 
  if(!name||!ref){
   alert("Please enter your name and transaction reference.");
@@ -447,14 +330,13 @@ function submitPayment(){
  }
 
  document.getElementById("paymentStatus").innerText=
-  "Reference entered for Order "+orderId+
-  ". It has NOT been sent to the store or verified. Contact the store owner to confirm payment.";
+ "Reference entered for "+selectedOffer.name+
+ ". This page does not send or save orders and cannot verify payment. Contact the store owner for manual verification.";
 
- alert("Payment is not verified or saved by this demo page. The store owner must check the bank/UPI account before delivering any code.");
+ alert("Reference entered only. Payment is NOT verified and no order has been submitted.");
 }
 
-render(products);
-updateCart();
+renderOffers();
 </script>
 </body>
 </html>
