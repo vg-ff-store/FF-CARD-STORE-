@@ -4,339 +4,231 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#08050c">
+<meta name="theme-color" content="#09000d">
 <title>FF CARD STORE</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
 body{
- background:#08050c;color:#fff;
- font-family:Arial,sans-serif;min-height:100vh;
- overflow-x:hidden;
+ font-family:Arial,sans-serif;
+ background:#09000d;color:white;
+ min-height:100vh;overflow-x:hidden;
 }
 body:before{
- content:"";position:fixed;inset:-50%;z-index:-2;
+ content:"";position:fixed;inset:0;z-index:-1;
  background:
- radial-gradient(circle at 20% 20%,#ff174455,transparent 30%),
- radial-gradient(circle at 80% 30%,#8015ff44,transparent 32%),
- radial-gradient(circle at 50% 80%,#ff174433,transparent 35%);
- animation:bgmove 12s ease-in-out infinite alternate;
+ radial-gradient(circle at 15% 20%,#65002e66,transparent 35%),
+ radial-gradient(circle at 85% 75%,#3900a866,transparent 35%),
+ linear-gradient(135deg,#080008,#140019,#080008);
+ animation:bg 8s infinite alternate;
 }
-@keyframes bgmove{to{transform:translate(5%,5%) rotate(10deg)}}
-.particles{position:fixed;inset:0;z-index:-1;pointer-events:none}
-.particles i{
- position:absolute;bottom:-10px;width:3px;height:3px;
- border-radius:50%;background:#ff3157;
- box-shadow:0 0 12px #ff1744;
- animation:float 9s linear infinite;
-}
-.particles i:nth-child(1){left:10%;animation-delay:0s}
-.particles i:nth-child(2){left:25%;animation-delay:2s}
-.particles i:nth-child(3){left:45%;animation-delay:4s}
-.particles i:nth-child(4){left:65%;animation-delay:1s}
-.particles i:nth-child(5){left:85%;animation-delay:3s}
-.particles i:nth-child(6){left:55%;animation-delay:5s}
-.particles i:nth-child(7){left:35%;animation-delay:6s}
-@keyframes float{to{transform:translateY(-110vh);opacity:0}}
-
+@keyframes bg{to{filter:hue-rotate(35deg)}}
 header{
- position:sticky;top:0;z-index:10;
- padding:16px;background:#100d14ed;
- backdrop-filter:blur(15px);
- border-bottom:1px solid #ff284544;
+ text-align:center;padding:30px 12px 20px;
 }
-.nav{max-width:1000px;margin:auto;text-align:center}
 .logo{
- font-size:25px;font-weight:1000;color:#ff3157;
- text-shadow:0 0 12px #ff1744,0 0 25px #ff1744;
- animation:glow 2s infinite alternate;
+ font-size:34px;font-weight:900;color:#ff174f;
+ text-shadow:0 0 10px #ff174f,0 0 30px #ff174f;
 }
-.logo span{color:#fff}
-@keyframes glow{to{text-shadow:0 0 20px #ff1744,0 0 35px #ff1744}}
-
-.hero{
- text-align:center;padding:60px 15px 48px;
- background:linear-gradient(120deg,#290817,#170d29,#300a15);
- background-size:300% 300%;
- animation:gradient 9s ease infinite;
- border-bottom:1px solid #ff174433;
+header p{color:#d7b8df;margin-top:9px}
+.container{max-width:650px;margin:auto;padding:12px}
+.section-title{
+ text-align:center;color:#ff3c75;
+ font-size:23px;margin:25px 0 15px;
+ text-shadow:0 0 12px #ff174f;
 }
-@keyframes gradient{50%{background-position:100% 50%}}
-.tag{
- display:inline-block;border:1px solid #ff355b;
- color:#ff7188;padding:8px 15px;border-radius:30px;
- font-size:11px;letter-spacing:2px;margin-bottom:20px;
+.card{
+ background:linear-gradient(145deg,#210c2a,#100b18);
+ border:1px solid #a52c75;border-radius:16px;
+ padding:18px;margin-bottom:14px;
+ box-shadow:0 0 14px #a0006533;
 }
-.hero h1{font-size:clamp(32px,8vw,56px);text-shadow:0 0 20px #ff174477}
-.hero h1 span{color:#ff3157}
-.hero p{color:#c2b7c6;line-height:1.8;margin-top:14px;font-size:13px}
-
-.container{max-width:950px;margin:auto;padding:28px 15px}
-.tools{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:30px}
-.toolbtn{
- padding:17px 8px;border-radius:12px;color:white;
- font-size:14px;font-weight:bold;border:1px solid #ff315b;
- background:linear-gradient(120deg,#ff1744,#8515e9);
- box-shadow:0 0 18px #ff174455;cursor:pointer;
-}
-.toolbtn.active{border-color:#fff;box-shadow:0 0 24px #ff1744aa}
-.section-title{font-size:23px;margin-bottom:8px}
-.section-title span{color:#ff3657}
-.subtitle{font-size:12px;color:#aaa;margin-bottom:18px;line-height:1.7}
-
-.offer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
 .offer{
- background:linear-gradient(145deg,#211522,#100d15);
- border:1px solid #493343;border-radius:15px;padding:15px;
- transition:.25s;animation:appear .5s ease both;
+ display:flex;align-items:center;justify-content:space-between;
+ gap:10px;flex-wrap:wrap;
 }
-.offer:hover{transform:translateY(-5px);border-color:#ff3157;box-shadow:0 0 20px #ff174433}
-@keyframes appear{
- from{opacity:0;transform:translateY(15px)}
- to{opacity:1;transform:translateY(0)}
+.offer h3{font-size:18px}
+.offer p{color:#c9a9d2;margin-top:6px;font-size:14px}
+.amount{color:#ff4e88;font-size:22px;font-weight:bold}
+button{
+ border:0;border-radius:9px;padding:12px 22px;
+ background:linear-gradient(90deg,#ff174f,#a000ff);
+ color:white;font-weight:bold;font-size:14px;
+ cursor:pointer;box-shadow:0 0 13px #ff174f66;
 }
-.offer-icon{
- height:75px;display:grid;place-items:center;
- font-size:42px;border-radius:10px;
- background:radial-gradient(circle,#5b1834,#17101d);
- margin-bottom:12px;
-}
-.offer h3{font-size:15px;margin-bottom:8px}
-.balance{font-size:20px;font-weight:bold;color:#ff5470;margin:8px 0}
-.price-label{font-size:11px;color:#aaa}
-.offer-price{font-size:21px;font-weight:bold;color:#5be88c;margin-top:4px}
-.process{
- width:100%;padding:12px;margin-top:13px;border:0;
- border-radius:8px;color:white;font-weight:bold;
- background:linear-gradient(110deg,#ff1744,#8b16ee);
- box-shadow:0 0 13px #ff174433;cursor:pointer;
-}
-.process:active{transform:scale(.96)}
-
+button:active{transform:scale(.96)}
+.process{margin-top:12px;width:100%}
 .panel{
- display:none;max-width:480px;margin:25px auto 0;padding:20px;
- text-align:center;background:linear-gradient(145deg,#211522,#100d15);
- border:1px solid #ff315577;border-radius:17px;
- box-shadow:0 0 30px #ff174433;animation:appear .3s ease;
+ display:none;background:#170c20;
+ border:1px solid #ff3b83;border-radius:16px;
+ padding:20px;margin:20px 0;text-align:center;
+ box-shadow:0 0 20px #ff174f55;
 }
-.panel h2{color:#ff4564;margin-bottom:10px}
-.amount{font-size:32px;color:#5be88c;font-weight:bold;margin:15px 0}
-.qr{
- display:block;width:100%;max-width:270px;aspect-ratio:1;
- object-fit:contain;background:#fff;border-radius:10px;
- padding:5px;margin:15px auto;
+.panel h2{color:#ff4d89;margin-bottom:12px}
+.qr-frame{
+ background:#fff;padding:12px;border-radius:12px;
+ width: min(100%,320px);margin:15px auto;
+ min-height:200px;display:flex;align-items:center;
+ justify-content:center;
 }
-.qr-error{display:none;color:#ff7288;font-size:13px;line-height:1.7;margin:12px 0}
-.small{font-size:12px;color:#b9aebc;line-height:1.8}
-.notice{
- background:#302414;color:#ffdc9c;padding:12px;
- border-radius:8px;font-size:12px;line-height:1.7;
- margin:13px 0;text-align:left;
+.qr-frame img{
+ display:block;width:100%;height:auto;
+ max-width:290px;object-fit:contain;
 }
-.field{
- width:100%;padding:13px;margin:7px 0;
- background:#09070c;color:#fff;border:1px solid #493747;
- border-radius:8px;outline:none;
+.qr-error{color:#333;font-size:14px;line-height:1.5}
+input{
+ width:100%;padding:13px;margin:8px 0;
+ border-radius:8px;border:1px solid #9b3b85;
+ background:#0c0710;color:white;font-size:15px;
 }
-.field:focus{border-color:#ff3157}
-.action{
- width:100%;padding:13px;margin-top:10px;
- background:linear-gradient(110deg,#ff1744,#8d16ff);
- border:0;border-radius:8px;color:white;font-weight:bold;cursor:pointer;
+.note{
+ font-size:12px;color:#c9b5d0;line-height:1.5;
+ margin-top:12px;
 }
 .close{
- width:100%;padding:12px;margin-top:10px;
- border:1px solid #555;border-radius:8px;
- background:#29222e;color:white;cursor:pointer;
+ background:#555;margin-top:12px;
 }
-.status{font-size:12px;color:#ffcf83;line-height:1.7;margin-top:12px}
-footer{
- background:#110e15;text-align:center;padding:28px 15px;
- margin-top:40px;color:#938999;font-size:12px;line-height:2;
- border-top:1px solid #ff174433;
-}
-footer strong{color:#ff3657}
-
-@media(min-width:650px){.offer-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(min-width:950px){.offer-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
-@media(max-width:360px){.offer-grid{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){
- *,*::before,*::after{animation:none!important;transition:none!important}
-}
+footer{text-align:center;padding:25px 10px;color:#9e849f;font-size:12px}
 </style>
 </head>
 
 <body>
-<div class="particles">
- <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-</div>
 
 <header>
- <div class="nav">
-  <div class="logo">FF <span>CARD STORE</span></div>
- </div>
+ <div class="logo">FF CARD STORE</div>
+ <p>Welcome to our digital store</p>
 </header>
-
-<section class="hero">
- <div class="tag">✦ PREMIUM DIGITAL STORE ✦</div>
- <h1>FF <span>CARD STORE</span></h1>
- <p>BUY CARD • REDEEM CODE</p>
- <p>Premium Offers | Fast Service | Easy Process</p>
-</section>
 
 <main class="container">
 
- <div class="tools">
-  <button class="toolbtn active" id="buyTab" onclick="showTool('buy')">💳 BUY CARD</button>
-  <button class="toolbtn" id="redeemTab" onclick="showTool('redeem')">🎟️ REDEEM CODE</button>
- </div>
+ <h2 class="section-title">🔥 BUY CARD</h2>
+ <div id="buyOffers"></div>
 
- <section id="buySection">
-  <h2 class="section-title">💳 BUY <span>CARD</span></h2>
-  <p class="subtitle">Choose your card offer and press PROCESS to open the payment QR.</p>
-  <div class="offer-grid" id="buyOffers"></div>
- </section>
-
- <section id="redeemSection" style="display:none">
-  <h2 class="section-title">🎟️ REDEEM <span>CODE</span></h2>
-  <p class="subtitle">Choose your redeem offer and press PROCESS to open the payment QR.</p>
-  <div class="offer-grid" id="redeemOffers"></div>
- </section>
+ <h2 class="section-title">💎 REDEEM CODE</h2>
+ <div id="redeemOffers"></div>
 
  <section class="panel" id="paymentPanel">
-  <h2>🔒 PAYMENT QR</h2>
-  <p class="small" id="selectedName">Selected offer</p>
-  <div class="amount">₹<span id="payAmount">0</span></div>
+  <h2>PAYMENT QR CODE</h2>
+  <p id="selectedOffer">Selected Offer</p>
 
-  <img class="qr" id="paymentQR" src="payment-qr.jpg"
-   alt="UPI Payment QR"
-   onerror="this.style.display='none';document.getElementById('qrError').style.display='block'">
-
-  <p class="qr-error" id="qrError">
-   QR image not found. Upload payment-qr.jpg into the same folder as index.html.
-  </p>
-
-  <div class="notice">
-   Scan the QR and pay the exact amount. Enter your name and UPI transaction reference after payment. Always verify the payment in your own bank or UPI account before delivering an order.
+  <div class="qr-frame">
+   <img
+    src="./payment-qr.jpg"
+    alt="Payment QR Code"
+    onerror="this.style.display='none';document.getElementById('qrError').style.display='block';"
+   >
+   <div id="qrError" class="qr-error" style="display:none">
+    QR image could not be loaded.<br><br>
+    Please upload <b>payment-qr.jpg</b><br>
+    in the same GitHub folder as index.html.
+   </div>
   </div>
 
-  <input class="field" id="customerName" placeholder="Your Name">
-  <input class="field" id="transactionId" placeholder="UPI Transaction ID / Reference">
+  <p>After paying, enter your details below.</p>
+  <input id="customerName" type="text" placeholder="Your Name">
+  <input id="transactionId" type="text" placeholder="UPI Transaction Reference">
 
-  <button class="action" onclick="submitPayment()">SUBMIT PAYMENT REFERENCE</button>
-  <p class="status" id="paymentStatus"></p>
+  <button class="process" onclick="showNotice()">SUBMIT DETAILS</button>
+  <p class="note">
+   This page does not verify payments or save orders.
+   Submitting details here does not confirm your purchase.
+   Contact the store owner for manual verification.
+  </p>
   <button class="close" onclick="closePayment()">CLOSE</button>
  </section>
-
- <div class="notice" style="margin-top:25px">
-  <strong>Important:</strong> Offers are descriptions of the products or values available. Only list products you are authorized and able to deliver. Payment references entered here are not automatically saved or verified.
- </div>
 
 </main>
 
 <footer>
- <h2><strong>FF CARD STORE</strong></h2>
- Premium Digital Offers Store<br>
- Secure Shopping Experience<br>
- © 2026 FF CARD STORE. All Rights Reserved.
+ FF CARD STORE | Digital Store<br>
+ Pay only to the official store payment account.
 </footer>
 
 <script>
-const buyOffers=[
- {name:"Starter Card",balance:"1,000 Balance",price:99,icon:"💳"},
- {name:"Basic Card",balance:"3,000 Balance",price:250,icon:"💎"},
- {name:"Silver Card",balance:"4,600 Balance",price:500,icon:"🥈"},
- {name:"Gold Card",balance:"7,500 Balance",price:1500,icon:"🥇"},
- {name:"Mega Surprise",balance:"10,000 Balance",price:2000,icon:"🎁"},
- {name:"Super Surprise",balance:"16,000 Balance",price:3000,icon:"🔥"},
- {name:"Ultra Surprise",balance:"28,000 Balance",price:5000,icon:"👑"}
+const buyOffers = [
+ {price:"₹99",balance:"1,000"},
+ {price:"₹250",balance:"3,000"},
+ {price:"₹500",balance:"4,600"},
+ {price:"₹1,500",balance:"7,500"},
+ {price:"₹2,000",balance:"10,000",tag:"SURPRISE OFFER"},
+ {price:"₹3,000",balance:"16,000",tag:"SURPRISE OFFER"},
+ {price:"₹5,000",balance:"28,000",tag:"SURPRISE OFFER"}
 ];
 
-const redeemOffers=[
- {name:"Mini Redeem",balance:"300 Redeem Value",price:150,icon:"🎟️"},
- {name:"Basic Redeem",balance:"500 Redeem Value",price:250,icon:"🎫"},
- {name:"Silver Redeem",balance:"1,200 Redeem Value",price:500,icon:"🥈"},
- {name:"Gold Redeem",balance:"2,500 Redeem Value",price:1000,icon:"🥇"},
- {name:"Premium Redeem",balance:"3,800 Redeem Value",price:1500,icon:"💎"},
- {name:"Mega Redeem",balance:"5,500 Redeem Value",price:2200,icon:"🔥"},
- {name:"Ultra Redeem",balance:"8,000 Redeem Value",price:3000,icon:"👑"}
+const redeemOffers = [
+ {price:"₹150",balance:"300"},
+ {price:"₹250",balance:"500"},
+ {price:"₹500",balance:"1,200"},
+ {price:"₹1,000",balance:"2,500"},
+ {price:"₹1,500",balance:"3,800"},
+ {price:"₹2,200",balance:"5,500"},
+ {price:"₹3,000",balance:"8,000"}
 ];
 
-let selectedOffer=null;
+function renderOffers(items,containerId,type){
+ const container=document.getElementById(containerId);
+ items.forEach(item=>{
+  const card=document.createElement("div");
+  card.className="card";
+  const offer=document.createElement("div");
+  offer.className="offer";
+  const details=document.createElement("div");
+  const heading=document.createElement("h3");
+  heading.textContent=item.tag ? "⭐ "+item.tag : type;
+  const description=document.createElement("p");
+  description.textContent=type==="BUY CARD"
+   ? "Get "+item.balance+" balance"
+   : "Redeem value: "+item.balance;
+  details.append(heading,description);
 
-function makeCards(list,type){
- return list.map((p,index)=>`
-  <article class="offer">
-   <div class="offer-icon">${p.icon}</div>
-   <h3>${p.name}</h3>
-   <div class="balance">${p.balance}</div>
-   <div class="price-label">OFFER PRICE</div>
-   <div class="offer-price">₹${p.price.toLocaleString("en-IN")}</div>
-   <button class="process" onclick="processOffer('${type}',${index})">PROCESS →</button>
-  </article>
- `).join("");
+  const amount=document.createElement("div");
+  amount.className="amount";
+  amount.textContent=item.price;
+
+  offer.append(details,amount);
+  const button=document.createElement("button");
+  button.className="process";
+  button.textContent="PROCESS";
+  button.addEventListener("click",()=>{
+   openPayment(type,item.price,item.balance);
+  });
+  card.append(offer,button);
+  container.appendChild(card);
+ });
 }
 
-function renderOffers(){
- document.getElementById("buyOffers").innerHTML=makeCards(buyOffers,"buy");
- document.getElementById("redeemOffers").innerHTML=makeCards(redeemOffers,"redeem");
-}
-
-function showTool(type){
- const isBuy=type==="buy";
- document.getElementById("buySection").style.display=isBuy?"block":"none";
- document.getElementById("redeemSection").style.display=isBuy?"none":"block";
- document.getElementById("buyTab").classList.toggle("active",isBuy);
- document.getElementById("redeemTab").classList.toggle("active",!isBuy);
- closePayment();
-}
-
-function processOffer(type,index){
- const list=type==="buy"?buyOffers:redeemOffers;
- selectedOffer=list[index];
-
- document.getElementById("selectedName").innerText=
- selectedOffer.name+" — "+selectedOffer.balance;
- document.getElementById("payAmount").innerText=
- selectedOffer.price.toLocaleString("en-IN");
-
- document.getElementById("customerName").value="";
- document.getElementById("transactionId").value="";
- document.getElementById("paymentStatus").innerText="";
-
- document.getElementById("paymentQR").style.display="block";
+function openPayment(type,price,balance){
+ document.getElementById("selectedOffer").textContent=
+  type+" | "+price+" | "+balance;
+ document.getElementById("paymentPanel").style.display="block";
  document.getElementById("qrError").style.display="none";
 
- document.getElementById("paymentPanel").style.display="block";
- document.getElementById("paymentPanel").scrollIntoView({behavior:"smooth"});
+ const qr=document.querySelector(".qr-frame img");
+ qr.style.display="block";
+ qr.src="./payment-qr.jpg";
+ document.getElementById("paymentPanel").scrollIntoView({
+  behavior:"smooth",block:"center"
+ });
 }
 
 function closePayment(){
  document.getElementById("paymentPanel").style.display="none";
 }
 
-function submitPayment(){
- if(!selectedOffer){
-  alert("Please select an offer first.");
-  return;
- }
+function showNotice(){
  const name=document.getElementById("customerName").value.trim();
- const ref=document.getElementById("transactionId").value.trim();
+ const reference=document.getElementById("transactionId").value.trim();
 
- if(!name||!ref){
-  alert("Please enter your name and transaction reference.");
+ if(!name || !reference){
+  alert("Please enter your name and UPI transaction reference.");
   return;
  }
-
- document.getElementById("paymentStatus").innerText=
- "Reference entered for "+selectedOffer.name+
- ". This page does not send or save orders and cannot verify payment. Contact the store owner for manual verification.";
-
- alert("Reference entered only. Payment is NOT verified and no order has been submitted.");
+ alert("Details entered. This demo page does not send or save them. Contact the store owner for payment verification.");
 }
 
-renderOffers();
+renderOffers(buyOffers,"buyOffers","BUY CARD");
+renderOffers(redeemOffers,"redeemOffers","REDEEM CODE");
 </script>
+
 </body>
 </html>
