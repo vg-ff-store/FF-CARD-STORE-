@@ -67,12 +67,21 @@ box-shadow:0 0 22px #a000ff55,inset 0 0 18px #a000ff22;
 .logo{font-size:29px;font-weight:900;color:#fff;text-shadow:0 0 10px #d000ff,0 0 25px #a000ff}
 .subtitle{color:#ff7be8;font-size:12px;margin-top:8px;letter-spacing:2px}
 
-#home,.page{
-flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;
+/* SCREEN NAVIGATION */
+.screen{
+display:none;
+flex:1;
+min-height:0;
+flex-direction:column;
 }
-.page{display:none}
-.page.active{display:flex}
-.section-title{text-align:center;margin:18px 0 15px;color:#ff76ec;font-size:19px;text-shadow:0 0 12px #ff00c8}
+.screen.active{display:flex}
+#home.active{justify-content:center}
+
+.section-title{
+text-align:center;margin:18px 0 15px;
+color:#ff76ec;font-size:19px;
+text-shadow:0 0 12px #ff00c8;
+}
 .home-option{
 width:100%;padding:23px 12px;margin:10px 0;flex-shrink:0;
 border-radius:16px;border:1px solid #c000ff;
@@ -174,6 +183,7 @@ footer{padding:5px}
 </head>
 
 <body>
+
 <div class="wallpaper">
 <div class="glow one"></div>
 <div class="glow two"></div>
@@ -182,29 +192,34 @@ footer{padding:5px}
 </div>
 
 <div class="container">
+
 <header>
 <div class="logo">🔥 FF CARD STORE</div>
 <div class="subtitle">PREMIUM GAMING STORE</div>
 </header>
 
-<div id="home">
+<!-- HOME SCREEN -->
+<div id="home" class="screen active">
 <h2 class="section-title">⚡ SELECT YOUR CATEGORY ⚡</h2>
 <button class="home-option" onclick="showPage('cards')">💎 FF CARD</button>
 <button class="home-option" onclick="showPage('redeem')">🔒 REDEEM CODE</button>
 </div>
 
-<div id="cards" class="page">
+<!-- FF CARD SCREEN -->
+<div id="cards" class="screen">
 <button class="back" onclick="showPage('home')">← BACK</button>
 <h2 class="section-title">💎 FF CARD PLANS</h2>
 <div id="cardProducts" class="product-list"></div>
 </div>
 
-<div id="redeem" class="page">
+<!-- REDEEM SCREEN -->
+<div id="redeem" class="screen">
 <button class="back" onclick="showPage('home')">← BACK</button>
 <h2 class="section-title">🔒 REDEEM CODE PLANS</h2>
 <div id="redeemProducts" class="product-list"></div>
 </div>
 
+<!-- PAYMENT SCREEN -->
 <div id="payment">
 <h2>💳 COMPLETE PAYMENT</h2>
 <p id="selectedProduct" style="text-align:center"></p>
@@ -251,6 +266,7 @@ Payment is subject to manual verification. Never share your UPI PIN or OTP.
 <a class="social" href="https://t.me/vgsvegpro" target="_blank" rel="noopener noreferrer">✈ Telegram</a>
 <p style="margin-top:5px">© 2026 FF CARD STORE</p>
 </footer>
+
 </div>
 
 <script>
@@ -264,6 +280,7 @@ const prices=[
 
 function createProducts(elementId,category){
 const area=document.getElementById(elementId);
+
 prices.forEach((price,index)=>{
 const balance=(index+1)*1000;
 const item=document.createElement("div");
@@ -291,32 +308,37 @@ area.appendChild(item);
 createProducts("cardProducts","FF CARD");
 createProducts("redeemProducts","REDEEM CODE");
 
-/* FIXED PAGE NAVIGATION */
+/* ONE SCREEN AT A TIME: RELIABLE NAVIGATION */
+let currentScreen="home";
+
 function showPage(id){
-const home=document.getElementById("home");
-const payment=document.getElementById("payment");
-const pages=document.querySelectorAll(".page");
+clearInterval(timerInterval);
 
-payment.style.display="none";
-
-pages.forEach(page=>{
-page.classList.remove("active");
+document.querySelectorAll(".screen").forEach(screen=>{
+screen.classList.remove("active");
 });
 
+document.getElementById("payment").style.display="none";
+
 if(id==="home"){
-home.style.display="flex";
-}else{
-home.style.display="none";
+document.getElementById("home").classList.add("active");
+}else if(id==="cards" || id==="redeem"){
 document.getElementById(id).classList.add("active");
 }
+
+currentScreen=id;
 }
 
 let timerInterval=null;
 let timeLeft=600;
 
 function openPayment(category,balance,price){
-document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-document.getElementById("home").style.display="none";
+clearInterval(timerInterval);
+
+document.querySelectorAll(".screen").forEach(screen=>{
+screen.classList.remove("active");
+});
+
 document.getElementById("payment").style.display="block";
 
 document.getElementById("selectedProduct").textContent=
@@ -331,7 +353,6 @@ document.getElementById("customerName").value="";
 document.getElementById("whatsapp").value="";
 document.getElementById("utr").value="";
 
-clearInterval(timerInterval);
 timeLeft=600;
 updateTimer();
 
@@ -375,6 +396,10 @@ document.getElementById("paymentMessage").style.display="block";
 }
 
 function retryPayment(){
+if(timeLeft<=0){
+alert("ORDER EXPIRED");
+return;
+}
 document.getElementById("paymentMessage").style.display="none";
 document.getElementById("paymentFields").style.display="block";
 }
@@ -385,5 +410,7 @@ document.getElementById("payment").style.display="none";
 showPage("home");
 }
 </script>
+
 </body>
-</html>
+  </html>
+  
