@@ -119,6 +119,21 @@ margin:12px auto;border-radius:12px;border:2px solid #e000ff;background:white;
 text-align:center;font-size:25px;font-weight:bold;color:#ff5bdc;
 margin:10px;text-shadow:0 0 12px #ff00d4;
 }
+
+/* SMALL WARNING UNDER TIMER */
+.fraud-warning{
+text-align:center;
+font-size:10px;
+line-height:1.4;
+color:#ffb7c9;
+background:rgba(100,0,30,.25);
+border:1px solid #ff315e;
+border-radius:8px;
+padding:7px 6px;
+margin:5px 0 12px;
+box-shadow:0 0 9px #ff174422;
+}
+
 .field{
 width:100%;padding:12px;margin:6px 0;border-radius:8px;
 border:1px solid #8500c9;background:#10001e;color:white;outline:none;
@@ -228,6 +243,11 @@ Scan QR Code to make payment
 
 <div class="timer" id="timer">10:00</div>
 
+<!-- YOUR WARNING MESSAGE -->
+<div class="fraud-warning">
+नकली पेमेंट स्क्रीनशॉट या फर्जी ऐप से पेमेंट दिखाने पर ऑर्डर रिजेक्ट होगा।
+</div>
+
 <div id="paymentFields">
 <input class="field" id="customerName" placeholder="Your Name">
 <input class="field" id="whatsapp" type="tel" placeholder="WhatsApp Number">
@@ -254,8 +274,17 @@ Payment is subject to manual verification. Never share your UPI PIN or OTP.
 
 <footer>
 <p>FOLLOW US</p>
-<a class="social" href="YOUR_YOUTUBE_LINK" target="_blank">▶ YouTube</a>
-<a class="social" href="YOUR_TELEGRAM_LINK" target="_blank">✈ Telegram</a>
+
+<a class="social"
+href="https://www.youtube.com/@vg_sveg_pro"
+target="_blank"
+rel="noopener noreferrer">▶ YouTube</a>
+
+<a class="social"
+href="https://t.me/vgsvegpro"
+target="_blank"
+rel="noopener noreferrer">✈ Telegram</a>
+
 <p style="margin-top:5px">© 2026 FF CARD STORE</p>
 </footer>
 
@@ -366,8 +395,7 @@ alert("Please fill all details.");
 return;
 }
 
-/* Shows the requested message.
-   This is not an actual payment verification. */
+/* This is not actual payment verification. */
 document.getElementById("paymentFields").style.display="none";
 document.getElementById("paymentMessage").style.display="block";
 }
