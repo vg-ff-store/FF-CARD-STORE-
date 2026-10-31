@@ -11,20 +11,11 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
- color:#fff;
- font-family:Arial,sans-serif;
- background:#08060b;
- overflow-x:hidden;
- min-height:100vh;
+ color:#fff;font-family:Arial,sans-serif;
+ background:#08060b;overflow-x:hidden;min-height:100vh;
 }
-
-/* ANIMATED BACKGROUND */
 body:before{
- content:"";
- position:fixed;
- inset:-50%;
- z-index:-2;
- pointer-events:none;
+ content:"";position:fixed;inset:-50%;z-index:-2;pointer-events:none;
  background:
  radial-gradient(circle at 20% 20%,#ff153a35,transparent 30%),
  radial-gradient(circle at 80% 30%,#7715ff35,transparent 32%),
@@ -32,25 +23,16 @@ body:before{
  animation:bgmove 12s ease-in-out infinite alternate;
 }
 @keyframes bgmove{
- 0%{transform:translate(0,0) rotate(0)}
- 100%{transform:translate(5%,5%) rotate(10deg)}
+ from{transform:translate(0,0) rotate(0)}
+ to{transform:translate(5%,5%) rotate(10deg)}
 }
-
-/* FLOATING PARTICLES */
-.particles{
- position:fixed;inset:0;
- z-index:-1;pointer-events:none;
- overflow:hidden;
-}
+.particles{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
 .particles i{
- position:absolute;
- width:3px;height:3px;
- border-radius:50%;
- background:#ff3a62;
- box-shadow:0 0 12px #ff1744;
+ position:absolute;width:3px;height:3px;border-radius:50%;
+ background:#ff3a62;box-shadow:0 0 12px #ff1744;
  animation:float 9s linear infinite;
 }
-.particles i:nth-child(1){left:10%;top:100%;animation-delay:0s}
+.particles i:nth-child(1){left:10%;top:100%}
 .particles i:nth-child(2){left:25%;top:100%;animation-delay:2s}
 .particles i:nth-child(3){left:45%;top:100%;animation-delay:4s}
 .particles i:nth-child(4){left:65%;top:100%;animation-delay:1s}
@@ -59,27 +41,19 @@ body:before{
 .particles i:nth-child(7){left:35%;top:100%;animation-delay:6s}
 @keyframes float{
  0%{transform:translateY(0);opacity:0}
- 15%{opacity:1}
- 85%{opacity:.8}
+ 15%{opacity:1}85%{opacity:.8}
  100%{transform:translateY(-110vh);opacity:0}
 }
-
-/* HEADER */
 header{
- position:sticky;top:0;z-index:10;
- background:#100d14eF;
- backdrop-filter:blur(15px);
- border-bottom:1px solid #ff284533;
- padding:15px;
+ position:sticky;top:0;z-index:10;background:#100d14ef;
+ backdrop-filter:blur(15px);border-bottom:1px solid #ff284533;padding:15px;
 }
 .nav{
- max-width:1100px;margin:auto;
- display:flex;align-items:center;
+ max-width:1100px;margin:auto;display:flex;align-items:center;
  justify-content:space-between;gap:10px;
 }
 .logo{
- font-size:22px;font-weight:1000;
- color:#ff304e;
+ font-size:22px;font-weight:1000;color:#ff304e;
  text-shadow:0 0 12px #ff1744,0 0 25px #ff174466;
  animation:glow 2s infinite alternate;
 }
@@ -88,19 +62,16 @@ header{
  from{text-shadow:0 0 5px #ff1744}
  to{text-shadow:0 0 20px #ff1744,0 0 35px #ff1744}
 }
-.cartbtn{
+.cartbtn,.shopbtn,.add,.checkout,.paybtn{
  background:linear-gradient(120deg,#ff1744,#8b19ff);
- border:0;color:white;padding:11px 15px;
- border-radius:9px;font-weight:bold;
- box-shadow:0 0 15px #ff174455;
+ color:white;border:0;border-radius:9px;font-weight:bold;
+ box-shadow:0 0 15px #ff174455;cursor:pointer;
 }
-
-/* HERO */
+.cartbtn{padding:11px 15px}
 .hero{
  text-align:center;padding:65px 15px 55px;
  background:linear-gradient(120deg,#240914,#140d25,#300a15);
- background-size:300% 300%;
- animation:heromove 9s ease infinite;
+ background-size:300% 300%;animation:heromove 9s ease infinite;
  border-bottom:1px solid #ff174433;
 }
 @keyframes heromove{
@@ -109,263 +80,141 @@ header{
  100%{background-position:0% 50%}
 }
 .hero .tag{
- display:inline-block;
- border:1px solid #ff355b;
- color:#ff617b;
- padding:8px 16px;border-radius:30px;
- font-size:11px;letter-spacing:2px;
- margin-bottom:20px;
+ display:inline-block;border:1px solid #ff355b;color:#ff617b;
+ padding:8px 16px;border-radius:30px;font-size:11px;
+ letter-spacing:2px;margin-bottom:20px;
 }
 .hero h1{
- font-size:clamp(32px,8vw,58px);
- font-weight:1000;
+ font-size:clamp(32px,8vw,58px);font-weight:1000;
  animation:titlefloat 3s ease-in-out infinite;
  text-shadow:0 0 20px #ff174477;
 }
 .hero h1 span{color:#ff3152}
-@keyframes titlefloat{
- 50%{transform:translateY(-7px)}
-}
-.hero p{
- color:#c2b7c6;line-height:1.8;
- margin-top:16px;font-size:14px;
-}
-.hero .shopbtn{
- display:inline-block;margin-top:22px;
- padding:13px 24px;
- background:linear-gradient(120deg,#ff1744,#8d16ff);
- color:white;text-decoration:none;
- border-radius:9px;font-weight:bold;
- box-shadow:0 0 22px #ff174455;
-}
-
-/* MAIN */
-.container{
- max-width:1100px;margin:auto;padding:30px 15px;
-}
-.section-title{
- font-size:23px;margin-bottom:18px;
-}
+@keyframes titlefloat{50%{transform:translateY(-7px)}}
+.hero p{color:#c2b7c6;line-height:1.8;margin-top:16px;font-size:14px}
+.shopbtn{display:inline-block;margin-top:22px;padding:13px 24px;text-decoration:none}
+.container{max-width:1100px;margin:auto;padding:30px 15px}
+.section-title{font-size:23px;margin-bottom:18px}
 .section-title span{color:#ff3657}
-
-/* CATEGORIES */
-.filters{
- display:flex;gap:9px;overflow-x:auto;
- padding-bottom:20px;
-}
+.filters{display:flex;gap:9px;overflow-x:auto;padding-bottom:20px}
 .filters button{
- flex-shrink:0;
- background:#17131d;color:#ddd;
- border:1px solid #39313f;
- padding:11px 16px;border-radius:9px;
+ flex-shrink:0;background:#17131d;color:#ddd;
+ border:1px solid #39313f;padding:11px 16px;border-radius:9px;
+ cursor:pointer;
 }
 .filters button.active{
  background:linear-gradient(120deg,#ff1744,#8515e9);
- border-color:#ff355b;color:white;
- box-shadow:0 0 15px #ff174455;
+ border-color:#ff355b;color:white;box-shadow:0 0 15px #ff174455;
 }
-
-/* PRODUCTS */
-.products{
- display:grid;
- grid-template-columns:repeat(2,minmax(0,1fr));
- gap:13px;
-}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
 .card{
  background:linear-gradient(145deg,#1b1520,#100d14);
- border:1px solid #39303d;
- border-radius:15px;padding:13px;
- overflow:hidden;
- transition:.3s;
- animation:appear .6s ease both;
+ border:1px solid #39303d;border-radius:15px;padding:13px;
+ overflow:hidden;transition:.3s;animation:appear .6s ease both;
 }
 @keyframes appear{
  from{opacity:0;transform:translateY(20px)}
  to{opacity:1;transform:translateY(0)}
 }
 .card:hover{
- transform:translateY(-7px);
- border-color:#ff3156;
+ transform:translateY(-7px);border-color:#ff3156;
  box-shadow:0 0 18px #ff174433,0 0 30px #7514ff22;
 }
 .pic{
- height:110px;
- background:radial-gradient(circle,#58172e,#17101d);
- border-radius:10px;
- display:grid;place-items:center;
- font-size:46px;
+ height:110px;background:radial-gradient(circle,#58172e,#17101d);
+ border-radius:10px;display:grid;place-items:center;font-size:46px;
  animation:picglow 3s infinite alternate;
 }
-@keyframes picglow{
- to{box-shadow:inset 0 0 25px #ff174455}
-}
-.stock{
- color:#50e58b;font-size:10px;
- font-weight:bold;margin-top:13px;
-}
+@keyframes picglow{to{box-shadow:inset 0 0 25px #ff174455}}
+.stock{color:#50e58b;font-size:10px;font-weight:bold;margin-top:13px}
 .card h3{font-size:15px;margin:9px 0}
 .mask{
- background:#09070c;
- border:1px solid #38303d;
- border-radius:7px;
- padding:9px;color:#bbb;
- font-size:12px;letter-spacing:1px;
+ background:#09070c;border:1px solid #38303d;border-radius:7px;
+ padding:9px;color:#bbb;font-size:12px;letter-spacing:1px;
 }
-.price{
- color:#ff4765;font-size:20px;
- font-weight:bold;margin-top:12px;
+.balance{
+ margin-top:9px;padding:10px;border-radius:8px;
+ background:#10251b;border:1px solid #286b45;
+ color:#6df0a0;font-size:12px;font-weight:bold;
 }
-.add{
- width:100%;margin-top:12px;
- background:linear-gradient(110deg,#ff1744,#8b16ee);
- color:white;border:0;border-radius:8px;
- padding:12px;font-weight:bold;
- transition:.2s;
- box-shadow:0 0 10px #ff174433;
-}
+.price{color:#ff4765;font-size:20px;font-weight:bold;margin-top:12px}
+.add{width:100%;margin-top:12px;padding:12px;transition:.2s}
 .add:active{transform:scale(.94)}
-
-/* CART */
 .cartbox{
- background:#17121d;
- border:1px solid #453144;
- border-radius:15px;padding:18px;
- margin-top:30px;
- box-shadow:0 0 25px #ff174422;
+ background:#17121d;border:1px solid #453144;border-radius:15px;
+ padding:18px;margin-top:30px;box-shadow:0 0 25px #ff174422;
 }
 .cartrow{
- display:flex;justify-content:space-between;
- gap:8px;padding:13px 0;
- border-bottom:1px solid #39303d;
- font-size:13px;
+ display:flex;justify-content:space-between;gap:8px;
+ padding:13px 0;border-bottom:1px solid #39303d;font-size:13px;
 }
-.remove{
- background:none;border:0;color:#ff536d;
- margin-left:8px;
-}
-.total{
- font-size:21px;margin-top:17px;
-}
-.checkout{
- width:100%;padding:14px;
- margin-top:15px;
- background:linear-gradient(110deg,#ff1744,#8d16ff);
- border:0;border-radius:9px;
- color:white;font-weight:bold;
- box-shadow:0 0 18px #ff174444;
-}
-button{cursor:pointer}
-
-/* INFO */
+.remove{background:none;border:0;color:#ff536d;margin-left:8px;cursor:pointer}
+.total{font-size:21px;margin-top:17px}
+.checkout{width:100%;padding:14px;margin-top:15px}
 .info{
- margin-top:25px;
- padding:18px;
- background:#15101a;
- border:1px solid #403142;
- border-radius:12px;
- color:#aaa;font-size:13px;
- line-height:1.9;
+ margin-top:25px;padding:18px;background:#15101a;
+ border:1px solid #403142;border-radius:12px;color:#aaa;
+ font-size:13px;line-height:1.9;
 }
 .info h3{color:white;margin-bottom:8px}
-
-/* PAYMENT MODAL */
 .modal{
- display:none;position:fixed;inset:0;
- background:#000e;z-index:30;
- overflow:auto;padding:12px;
- backdrop-filter:blur(8px);
+ display:none;position:fixed;inset:0;background:#000e;z-index:30;
+ overflow:auto;padding:12px;backdrop-filter:blur(8px);
 }
 .panel{
  max-width:420px;margin:20px auto;
  background:linear-gradient(145deg,#201522,#100d15);
- border:1px solid #ff315577;
- border-radius:18px;padding:20px;
- text-align:center;
- box-shadow:0 0 35px #ff174444;
+ border:1px solid #ff315577;border-radius:18px;padding:20px;
+ text-align:center;box-shadow:0 0 35px #ff174444;
  animation:panelin .35s ease;
 }
 @keyframes panelin{
  from{opacity:0;transform:scale(.9)}
  to{opacity:1;transform:scale(1)}
 }
-.panel h2{
- color:#ff3d5c;margin-bottom:12px;
- text-shadow:0 0 12px #ff1744;
-}
-.amount{
- font-size:30px;font-weight:bold;
- color:#5be88c;margin:15px 0;
-}
+.panel h2{color:#ff3d5c;margin-bottom:12px;text-shadow:0 0 12px #ff1744}
+.amount{font-size:30px;font-weight:bold;color:#5be88c;margin:15px 0}
 .qr{
- width:100%;max-width:270px;
- aspect-ratio:1;object-fit:contain;
- background:#f5d58f;
- border-radius:10px;
- padding:5px;margin:12px auto;
+ width:100%;max-width:270px;aspect-ratio:1;object-fit:contain;
+ background:#f5d58f;border-radius:10px;padding:5px;margin:12px auto;
  display:block;
 }
 .qr-error{display:none;color:#ff687d;font-size:12px}
 .timer{
- color:#ff405f;font-size:35px;
- font-weight:bold;margin:13px;
- text-shadow:0 0 15px #ff1744;
- animation:pulse 1.5s infinite;
+ color:#ff405f;font-size:35px;font-weight:bold;margin:13px;
+ text-shadow:0 0 15px #ff1744;animation:pulse 1.5s infinite;
 }
 @keyframes pulse{50%{opacity:.6}}
-.small{
- color:#b9aebc;font-size:12px;
- line-height:1.7;
-}
+.small{color:#b9aebc;font-size:12px;line-height:1.7}
 .notice{
- background:#302414;
- color:#ffdc9c;
- padding:12px;border-radius:8px;
+ background:#302414;color:#ffdc9c;padding:12px;border-radius:8px;
  margin:13px 0;font-size:12px;line-height:1.6;
 }
 .field{
- width:100%;padding:13px;margin:7px 0;
- background:#09070c;color:white;
- border:1px solid #493747;
- border-radius:8px;
+ width:100%;padding:13px;margin:7px 0;background:#09070c;color:white;
+ border:1px solid #493747;border-radius:8px;
 }
-.paybtn{
- width:100%;padding:13px;
- border:0;border-radius:8px;
- background:linear-gradient(110deg,#ff1744,#8d16ff);
- color:white;font-weight:bold;margin-top:12px;
-}
+.paybtn{width:100%;padding:13px;margin-top:12px}
 .close{
- width:100%;padding:12px;
- margin-top:10px;border:1px solid #555;
- border-radius:8px;background:#29222e;color:white;
+ width:100%;padding:12px;margin-top:10px;border:1px solid #555;
+ border-radius:8px;background:#29222e;color:white;cursor:pointer;
 }
 footer{
- background:#110e15;
- text-align:center;padding:30px 15px;
- margin-top:40px;color:#938999;
- font-size:12px;line-height:2;
+ background:#110e15;text-align:center;padding:30px 15px;
+ margin-top:40px;color:#938999;font-size:12px;line-height:2;
  border-top:1px solid #ff174433;
 }
 footer strong{color:#ff3657}
-
-@media(min-width:650px){
- .products{grid-template-columns:repeat(3,1fr)}
-}
-@media(min-width:950px){
- .products{grid-template-columns:repeat(4,1fr)}
-}
+button{cursor:pointer}
+@media(min-width:650px){.products{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:950px){.products{grid-template-columns:repeat(4,1fr)}}
 @media(prefers-reduced-motion:reduce){
- *,*::before,*::after{
-  animation:none!important;
-  transition:none!important;
-  scroll-behavior:auto!important;
- }
+ *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
 </style>
 </head>
 
 <body>
-
 <div class="particles">
  <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
 </div>
@@ -387,7 +236,6 @@ footer strong{color:#ff3657}
 </section>
 
 <main class="container">
-
  <h2 class="section-title">✦ Explore <span>Products</span></h2>
 
  <div class="filters">
@@ -409,30 +257,24 @@ footer strong{color:#ff3657}
 
  <div class="info">
   <h3>🔒 Secure Shopping</h3>
-  • Card details are masked on product listings.<br>
+  • Card numbers are masked on product listings.<br>
+  • Card balance must be confirmed before purchase.<br>
   • No sensitive payment-card numbers or CVV are collected.<br>
-  • Payment must be verified before an order is fulfilled.<br>
+  • Payment must be verified before any code is delivered.<br>
   • Only authorized digital products are offered.
  </div>
-
 </main>
 
-<!-- PAYMENT WINDOW -->
 <div class="modal" id="paymentModal">
  <div class="panel">
   <h2>FF CARD STORE</h2>
   <p class="small">SCAN QR CODE TO PAY</p>
-
   <div class="amount">₹<span id="payAmount">0</span></div>
 
-  <!-- Upload your own QR image as payment-qr.jpg -->
-  <img
-   class="qr"
-   id="paymentQR"
+  <img class="qr" id="paymentQR"
    src="payment-qr.jpg"
    alt="Store UPI payment QR"
-   onerror="this.style.display='none';document.getElementById('qrError').style.display='block'"
-  >
+   onerror="this.style.display='none';document.getElementById('qrError').style.display='block'">
 
   <p id="qrError" class="qr-error">
    QR image not found. Upload payment-qr.jpg to your GitHub repository.
@@ -442,7 +284,7 @@ footer strong{color:#ff3657}
   <p class="small">Checkout session countdown</p>
 
   <div class="notice">
-   This is a static UPI QR. The five-minute timer closes this checkout screen only; it does not deactivate the QR at the bank. Always verify the received payment in your own UPI/bank account.
+   This is a static UPI QR. The five-minute timer closes this checkout screen only; it does not deactivate the QR at the bank. Always verify the payment in your own UPI/bank account.
   </div>
 
   <input class="field" id="customerName" placeholder="Your Name">
@@ -451,9 +293,7 @@ footer strong{color:#ff3657}
   <button class="paybtn" id="submitBtn" onclick="submitPayment()">
    SUBMIT FOR VERIFICATION
   </button>
-
   <p class="small" id="paymentStatus" style="margin-top:13px"></p>
-
   <button class="close" onclick="closePayment()">CLOSE</button>
  </div>
 </div>
@@ -466,18 +306,18 @@ footer strong{color:#ff3657}
 </footer>
 
 <script>
-/* PRODUCT CATALOG
-   Replace example names and prices with authorized products.
-*/
+/* Replace sample products, prices and masked endings
+   with your real authorized inventory before publishing. */
+
 const products=[
- {id:1,name:"Free Fire Top-Up",cat:"gaming",price:99,icon:"🎮",last:"4829"},
- {id:2,name:"Gaming Gift Card",cat:"gaming",price:199,icon:"🕹️",last:"7312"},
- {id:3,name:"Digital Gift Card",cat:"gift",price:299,icon:"🎁",last:"8291"},
- {id:4,name:"Premium Gift Card",cat:"gift",price:499,icon:"💳",last:"1826"},
- {id:5,name:"Premium Membership",cat:"membership",price:199,icon:"👑",last:"4921"},
- {id:6,name:"VIP Membership",cat:"membership",price:299,icon:"⭐",last:"6291"},
- {id:7,name:"Custom Digital Card",cat:"custom",price:99,icon:"💎",last:"9128"},
- {id:8,name:"Custom Gaming Card",cat:"custom",price:149,icon:"🔥",last:"3721"}
+ {id:1,name:"Free Fire Top-Up",cat:"gaming",price:99,icon:"🎮",last:"XXXX",balance:"Verify before purchase"},
+ {id:2,name:"Gaming Gift Card",cat:"gaming",price:199,icon:"🕹️",last:"XXXX",balance:"Verify before purchase"},
+ {id:3,name:"Digital Gift Card",cat:"gift",price:299,icon:"🎁",last:"XXXX",balance:"Verify before purchase"},
+ {id:4,name:"Premium Gift Card",cat:"gift",price:499,icon:"💳",last:"XXXX",balance:"Verify before purchase"},
+ {id:5,name:"Premium Membership",cat:"membership",price:199,icon:"👑",last:"XXXX",balance:"Verify before purchase"},
+ {id:6,name:"VIP Membership",cat:"membership",price:299,icon:"⭐",last:"XXXX",balance:"Verify before purchase"},
+ {id:7,name:"Custom Digital Card",cat:"custom",price:99,icon:"💎",last:"XXXX",balance:"Verify before purchase"},
+ {id:8,name:"Custom Gaming Card",cat:"custom",price:149,icon:"🔥",last:"XXXX",balance:"Verify before purchase"}
 ];
 
 let cart=[];
@@ -492,9 +332,10 @@ function render(list){
    <div class="pic">${p.icon}</div>
    <div class="stock">● LISTED PRODUCT</div>
    <h3>${p.name}</h3>
-   <div class="mask">•••• •••• •••• ${p.last}</div>
+   <div class="mask">CARD NO: •••• •••• •••• ${p.last}</div>
+   <div class="balance">💰 CARD BALANCE: ${p.balance}</div>
    <div class="price">₹${p.price}</div>
-   <button class="add" onclick="add(${p.id})">ADD TO CART +</button>
+   <button class="add" onclick="add(${p.id})">GET CARD CODE +</button>
   </div>
  `).join("");
 }
@@ -511,6 +352,7 @@ function add(id){
  if(found)found.qty++;
  else cart.push({...p,qty:1});
  updateCart();
+ document.getElementById("cart").scrollIntoView({behavior:"smooth"});
 }
 
 function removeItem(id){
@@ -557,8 +399,8 @@ function openPayment(){
 
  remaining=300;
  updateTimer();
-
  clearInterval(timerInterval);
+
  timerInterval=setInterval(()=>{
   remaining--;
   updateTimer();
@@ -568,7 +410,8 @@ function openPayment(){
    document.getElementById("timer").innerText="EXPIRED";
    document.getElementById("paymentQR").style.display="none";
    document.getElementById("qrError").style.display="block";
-   document.getElementById("qrError").innerText="Checkout session expired. Start a new checkout.";
+   document.getElementById("qrError").innerText=
+    "Checkout session expired. Start a new checkout.";
    document.getElementById("submitBtn").disabled=true;
    document.getElementById("submitBtn").style.opacity=".5";
    document.getElementById("paymentStatus").innerText=
@@ -604,15 +447,14 @@ function submitPayment(){
  }
 
  document.getElementById("paymentStatus").innerText=
-  "Reference received in this browser only. Order "+orderId+
-  " is NOT submitted to the store. A secure backend is required for real order submission and payment verification.";
+  "Reference entered for Order "+orderId+
+  ". It has NOT been sent to the store or verified. Contact the store owner to confirm payment.";
 
- alert("This website frontend cannot verify or save payments yet. Do not treat this as a confirmed order.");
+ alert("Payment is not verified or saved by this demo page. The store owner must check the bank/UPI account before delivering any code.");
 }
 
 render(products);
 updateCart();
 </script>
-
 </body>
 </html>
