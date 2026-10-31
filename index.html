@@ -9,366 +9,254 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden;overscroll-behavior:none}
+body{background:#080012;color:white;font-family:Arial,sans-serif}
 
-html,body{
-  width:100%;
-  height:100%;
-  overflow:hidden;
-  overscroll-behavior:none;
-}
-
-body{
-  background:#080012;
-  color:white;
-  font-family:Arial,sans-serif;
-}
-
-/* LIVE WALLPAPER */
 .wallpaper{
-  position:fixed;
-  inset:0;
-  z-index:-2;
-  overflow:hidden;
-  background:linear-gradient(135deg,#090014,#18002e,#090014,#24002c);
-  background-size:400% 400%;
-  animation:bgMove 12s ease infinite;
+position:fixed;inset:0;z-index:-2;overflow:hidden;
+background:linear-gradient(135deg,#090014,#18002e,#090014,#24002c);
+background-size:400% 400%;animation:bgMove 12s ease infinite;
 }
 @keyframes bgMove{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
 }
 .glow{
-  position:absolute;
-  width:260px;
-  height:260px;
-  border-radius:50%;
-  filter:blur(90px);
-  opacity:.55;
-  animation:float 9s ease-in-out infinite alternate;
+position:absolute;width:260px;height:260px;border-radius:50%;
+filter:blur(90px);opacity:.55;
+animation:float 9s ease-in-out infinite alternate;
 }
 .glow.one{background:#a000ff;top:5%;left:-100px}
 .glow.two{background:#ff008c;right:-100px;top:40%;animation-delay:2s}
 .glow.three{background:#3d00ff;bottom:-100px;left:30%;animation-delay:4s}
 @keyframes float{
-  from{transform:translate(0,0) scale(1)}
-  to{transform:translate(80px,-60px) scale(1.35)}
+from{transform:translate(0,0) scale(1)}
+to{transform:translate(80px,-60px) scale(1.35)}
 }
 .particles{
-  position:absolute;
-  inset:0;
-  background-image:
-    radial-gradient(2px 2px at 20px 30px,#fff,transparent),
-    radial-gradient(2px 2px at 100px 150px,#ff55e8,transparent),
-    radial-gradient(2px 2px at 200px 80px,#a855ff,transparent),
-    radial-gradient(2px 2px at 300px 220px,#fff,transparent);
-  background-size:350px 300px;
-  animation:particleMove 18s linear infinite;
-  opacity:.65;
+position:absolute;inset:0;
+background-image:
+radial-gradient(2px 2px at 20px 30px,#fff,transparent),
+radial-gradient(2px 2px at 100px 150px,#ff55e8,transparent),
+radial-gradient(2px 2px at 200px 80px,#a855ff,transparent),
+radial-gradient(2px 2px at 300px 220px,#fff,transparent);
+background-size:350px 300px;
+animation:particleMove 18s linear infinite;opacity:.65;
 }
 @keyframes particleMove{
-  from{transform:translateY(0)}
-  to{transform:translateY(-300px)}
+from{transform:translateY(0)}
+to{transform:translateY(-300px)}
 }
 .wallpaper:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:radial-gradient(ellipse at center,transparent 20%,#080012 100%);
+content:"";position:absolute;inset:0;
+background:radial-gradient(ellipse at center,transparent 20%,#080012 100%);
 }
 
-/* MAIN DESIGN */
 .container{
-  width:100%;
-  max-width:480px;
-  height:100dvh;
-  margin:auto;
-  padding:18px 14px 15px;
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
+width:100%;max-width:480px;height:100dvh;margin:auto;
+padding:18px 14px 15px;position:relative;overflow:hidden;
+display:flex;flex-direction:column;
 }
-
 header{
-  flex-shrink:0;
-  text-align:center;
-  padding:20px 10px;
-  border:1px solid #a900ff;
-  border-radius:18px;
-  background:rgba(15,0,30,.72);
-  box-shadow:0 0 22px #a000ff55,inset 0 0 18px #a000ff22;
+flex-shrink:0;text-align:center;padding:20px 10px;
+border:1px solid #a900ff;border-radius:18px;
+background:rgba(15,0,30,.72);
+box-shadow:0 0 22px #a000ff55,inset 0 0 18px #a000ff22;
 }
-.logo{
-  font-size:29px;
-  font-weight:900;
-  color:#fff;
-  text-shadow:0 0 10px #d000ff,0 0 25px #a000ff;
-}
-.subtitle{
-  color:#ff7be8;
-  font-size:12px;
-  margin-top:8px;
-  letter-spacing:2px;
-}
+.logo{font-size:29px;font-weight:900;color:#fff;text-shadow:0 0 10px #d000ff,0 0 25px #a000ff}
+.subtitle{color:#ff7be8;font-size:12px;margin-top:8px;letter-spacing:2px}
 
 #home,.page{
-  flex:1;
-  min-height:0;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
+flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;
 }
 .page{display:none}
 .page.active{display:flex}
-
-.section-title{
-  text-align:center;
-  margin:18px 0 15px;
-  color:#ff76ec;
-  font-size:19px;
-  text-shadow:0 0 12px #ff00c8;
-}
+.section-title{text-align:center;margin:18px 0 15px;color:#ff76ec;font-size:19px;text-shadow:0 0 12px #ff00c8}
 .home-option{
-  width:100%;
-  padding:23px 12px;
-  margin:10px 0;
-  flex-shrink:0;
-  border-radius:16px;
-  border:1px solid #c000ff;
-  background:linear-gradient(120deg,rgba(76,0,120,.85),rgba(25,0,50,.9));
-  color:white;
-  font-size:20px;
-  font-weight:bold;
-  cursor:pointer;
-  box-shadow:0 0 18px #a000ff55;
+width:100%;padding:23px 12px;margin:10px 0;flex-shrink:0;
+border-radius:16px;border:1px solid #c000ff;
+background:linear-gradient(120deg,rgba(76,0,120,.85),rgba(25,0,50,.9));
+color:white;font-size:20px;font-weight:bold;cursor:pointer;
+box-shadow:0 0 18px #a000ff55;
 }
-.home-option:active{transform:scale(.97)}
 .back{
-  flex-shrink:0;
-  background:#25003d;
-  border:1px solid #c000ff;
-  color:white;
-  padding:10px 16px;
-  border-radius:9px;
-  cursor:pointer;
-  margin:8px 0;
+flex-shrink:0;background:#25003d;border:1px solid #c000ff;
+color:white;padding:10px 16px;border-radius:9px;cursor:pointer;margin:8px 0;
 }
 .product-list{
-  flex:1;
-  min-height:0;
-  overflow-y:auto;
-  overscroll-behavior:contain;
-  scrollbar-width:none;
-  -ms-overflow-style:none;
-  padding-bottom:8px;
+flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;
+scrollbar-width:none;-ms-overflow-style:none;padding-bottom:8px;
 }
 .product-list::-webkit-scrollbar{display:none}
 .product{
-  background:rgba(25,0,45,.88);
-  border:1px solid #8d00d9;
-  border-radius:13px;
-  padding:12px;
-  margin:9px 0;
-  box-shadow:0 0 13px #8700ff33;
+background:rgba(25,0,45,.88);border:1px solid #8d00d9;
+border-radius:13px;padding:12px;margin:9px 0;
+box-shadow:0 0 13px #8700ff33;
 }
 .product h3{color:#ff83ed;font-size:16px}
 .product p{margin-top:7px;color:#eee;font-size:14px}
 .buy{
-  width:100%;
-  margin-top:11px;
-  border:0;
-  padding:12px;
-  border-radius:9px;
-  color:white;
-  font-weight:bold;
-  font-size:15px;
-  background:linear-gradient(90deg,#8300ff,#ff008c);
-  cursor:pointer;
+width:100%;margin-top:11px;border:0;padding:12px;border-radius:9px;
+color:white;font-weight:bold;font-size:15px;
+background:linear-gradient(90deg,#8300ff,#ff008c);cursor:pointer;
 }
-.buy:active{transform:scale(.97)}
 
-/* PAYMENT */
 #payment{
-  display:none;
-  flex:1;
-  min-height:0;
-  overflow-y:auto;
-  scrollbar-width:none;
-  -ms-overflow-style:none;
-  background:rgba(19,0,35,.96);
-  border:1px solid #e000ff;
-  border-radius:17px;
-  padding:13px;
-  margin-top:12px;
-  box-shadow:0 0 22px #a000ff66;
+display:none;flex:1;min-height:0;overflow-y:auto;
+scrollbar-width:none;-ms-overflow-style:none;
+background:rgba(19,0,35,.96);border:1px solid #e000ff;
+border-radius:17px;padding:13px;margin-top:12px;
+box-shadow:0 0 22px #a000ff66;
 }
 #payment::-webkit-scrollbar{display:none}
-#payment h2{
-  text-align:center;
-  color:#ff77e9;
-  margin-bottom:12px;
-}
+#payment h2{text-align:center;color:#ff77e9;margin-bottom:12px}
 .qr{
-  display:block;
-  width:170px;
-  max-width:100%;
-  height:auto;
-  margin:12px auto;
-  border-radius:12px;
-  border:2px solid #e000ff;
-  background:white;
+display:block;width:170px;max-width:100%;height:auto;
+margin:12px auto;border-radius:12px;border:2px solid #e000ff;background:white;
 }
 .timer{
-  text-align:center;
-  font-size:25px;
-  font-weight:bold;
-  color:#ff5bdc;
-  margin:10px;
-  text-shadow:0 0 12px #ff00d4;
+text-align:center;font-size:25px;font-weight:bold;color:#ff5bdc;
+margin:10px;text-shadow:0 0 12px #ff00d4;
 }
 .field{
-  width:100%;
-  padding:12px;
-  margin:6px 0;
-  border-radius:8px;
-  border:1px solid #8500c9;
-  background:#10001e;
-  color:white;
-  outline:none;
+width:100%;padding:12px;margin:6px 0;border-radius:8px;
+border:1px solid #8500c9;background:#10001e;color:white;outline:none;
 }
 .field:focus{border-color:#ff36df}
 .submit{
-  width:100%;
-  padding:13px;
-  margin-top:9px;
-  background:linear-gradient(90deg,#7900ff,#ed008d);
-  color:white;
-  border:0;
-  border-radius:9px;
-  font-weight:bold;
-  cursor:pointer;
+width:100%;padding:13px;margin-top:9px;
+background:linear-gradient(90deg,#7900ff,#ed008d);
+color:white;border:0;border-radius:9px;font-weight:bold;cursor:pointer;
 }
-.notice{
-  font-size:11px;
-  color:#cbb6d9;
-  line-height:1.5;
-  margin:10px 0;
-}
+.notice{font-size:11px;color:#cbb6d9;line-height:1.5;margin:10px 0}
 #expired{
-  display:none;
-  text-align:center;
-  color:#ff5555;
-  font-size:22px;
-  font-weight:bold;
-  padding:20px 0;
-}
-footer{
-  flex-shrink:0;
-  text-align:center;
-  padding:10px 5px 3px;
-  color:#cbb8d5;
-  font-size:11px;
-}
-.social{
-  display:inline-block;
-  margin:7px 4px;
-  padding:9px 14px;
-  border-radius:20px;
-  color:white;
-  text-decoration:none;
-  background:linear-gradient(90deg,#7900ff,#ed008d);
-  font-weight:bold;
+display:none;text-align:center;color:#ff5555;
+font-size:22px;font-weight:bold;padding:20px 0;
 }
 
+/* PAYMENT NOT DETECTED MESSAGE */
+#paymentMessage{
+display:none;
+text-align:center;
+padding:18px 10px;
+margin-top:12px;
+border:1px solid #ff315e;
+border-radius:12px;
+background:rgba(100,0,25,.25);
+box-shadow:0 0 15px #ff174455;
+}
+#paymentMessage h3{
+color:#ff456c;
+font-size:19px;
+margin-bottom:9px;
+}
+#paymentMessage p{
+color:#ffd5df;
+font-size:13px;
+line-height:1.5;
+}
+#paymentMessage button{
+margin-top:12px;
+padding:10px 17px;
+border:0;border-radius:8px;
+background:linear-gradient(90deg,#7900ff,#ed008d);
+color:white;font-weight:bold;
+}
+footer{
+flex-shrink:0;text-align:center;padding:10px 5px 3px;
+color:#cbb8d5;font-size:11px;
+}
+.social{
+display:inline-block;margin:7px 4px;padding:9px 14px;
+border-radius:20px;color:white;text-decoration:none;
+background:linear-gradient(90deg,#7900ff,#ed008d);font-weight:bold;
+}
 @media(max-height:650px){
-  .container{padding-top:8px}
-  header{padding:12px}
-  .logo{font-size:24px}
-  .section-title{margin:10px 0}
-  .home-option{padding:16px}
-  footer{padding:5px}
+.container{padding-top:8px}
+header{padding:12px}
+.logo{font-size:24px}
+.section-title{margin:10px 0}
+.home-option{padding:16px}
+footer{padding:5px}
 }
 </style>
 </head>
 
 <body>
-
 <div class="wallpaper">
-  <div class="glow one"></div>
-  <div class="glow two"></div>
-  <div class="glow three"></div>
-  <div class="particles"></div>
+<div class="glow one"></div>
+<div class="glow two"></div>
+<div class="glow three"></div>
+<div class="particles"></div>
 </div>
 
 <div class="container">
 
 <header>
-  <div class="logo">🔥 FF CARD STORE</div>
-  <div class="subtitle">PREMIUM GAMING STORE</div>
+<div class="logo">🔥 FF CARD STORE</div>
+<div class="subtitle">PREMIUM GAMING STORE</div>
 </header>
 
 <div id="home">
-  <h2 class="section-title">⚡ SELECT YOUR CATEGORY ⚡</h2>
-
-  <button class="home-option" onclick="showPage('cards')">
-    💎 FF CARD
-  </button>
-
-  <button class="home-option" onclick="showPage('redeem')">
-    🔒 REDEEM CODE
-  </button>
+<h2 class="section-title">⚡ SELECT YOUR CATEGORY ⚡</h2>
+<button class="home-option" onclick="showPage('cards')">💎 FF CARD</button>
+<button class="home-option" onclick="showPage('redeem')">🔒 REDEEM CODE</button>
 </div>
 
 <div id="cards" class="page">
-  <button class="back" onclick="showPage('home')">← BACK</button>
-  <h2 class="section-title">💎 FF CARD PLANS</h2>
-  <div id="cardProducts" class="product-list"></div>
+<button class="back" onclick="showPage('home')">← BACK</button>
+<h2 class="section-title">💎 FF CARD PLANS</h2>
+<div id="cardProducts" class="product-list"></div>
 </div>
 
 <div id="redeem" class="page">
-  <button class="back" onclick="showPage('home')">← BACK</button>
-  <h2 class="section-title">🔒 REDEEM CODE PLANS</h2>
-  <div id="redeemProducts" class="product-list"></div>
+<button class="back" onclick="showPage('home')">← BACK</button>
+<h2 class="section-title">🔒 REDEEM CODE PLANS</h2>
+<div id="redeemProducts" class="product-list"></div>
 </div>
 
 <div id="payment">
-  <h2>💳 COMPLETE PAYMENT</h2>
+<h2>💳 COMPLETE PAYMENT</h2>
+<p id="selectedProduct" style="text-align:center"></p>
 
-  <p id="selectedProduct" style="text-align:center"></p>
+<img src="payment-qr.jpg" class="qr" alt="Payment QR Code">
 
-  <img src="payment-qr.jpg" class="qr" alt="Payment QR Code">
+<p style="text-align:center;color:#ff9cec">
+Scan QR Code to make payment
+</p>
 
-  <p style="text-align:center;color:#ff9cec">
-    Scan QR Code to make payment
-  </p>
+<div class="timer" id="timer">10:00</div>
 
-  <div class="timer" id="timer">10:00</div>
+<div id="paymentFields">
+<input class="field" id="customerName" placeholder="Your Name">
+<input class="field" id="whatsapp" type="tel" placeholder="WhatsApp Number">
+<input class="field" id="utr" placeholder="Payment Reference / UTR">
 
-  <div id="paymentFields">
-    <input class="field" id="customerName" placeholder="Your Name">
-    <input class="field" id="whatsapp" type="tel" placeholder="WhatsApp Number">
-    <input class="field" id="utr" placeholder="Payment Reference / UTR">
+<button class="submit" onclick="submitDetails()">
+SUBMIT PAYMENT DETAILS
+</button>
 
-    <button class="submit" onclick="submitDetails()">
-      SUBMIT PAYMENT DETAILS
-    </button>
+<p class="notice">
+Payment is subject to manual verification. Never share your UPI PIN or OTP.
+</p>
+</div>
 
-    <p class="notice">
-      Payment details are submitted for manual verification.
-      Never share your UPI PIN, OTP or banking password.
-    </p>
-  </div>
+<div id="paymentMessage">
+<h3>❌ YOUR PAYMENT IS NOT DETECTED</h3>
+<p>Your payment has not been verified. Please check your payment and contact the store owner.</p>
+<button onclick="retryPayment()">TRY AGAIN</button>
+</div>
 
-  <div id="expired">⏰ ORDER EXPIRED</div>
-  <button class="back" onclick="closePayment()">← CLOSE</button>
+<div id="expired">⏰ ORDER EXPIRED</div>
+<button class="back" onclick="closePayment()">← CLOSE</button>
 </div>
 
 <footer>
-  <p>FOLLOW US</p>
-  <a class="social" href="YOUR_YOUTUBE_LINK" target="_blank">▶ YouTube</a>
-  <a class="social" href="YOUR_TELEGRAM_LINK" target="_blank">✈ Telegram</a>
-  <p style="margin-top:5px">© 2026 FF CARD STORE</p>
+<p>FOLLOW US</p>
+<a class="social" href="YOUR_YOUTUBE_LINK" target="_blank">▶ YouTube</a>
+<a class="social" href="YOUR_TELEGRAM_LINK" target="_blank">✈ Telegram</a>
+<p style="margin-top:5px">© 2026 FF CARD STORE</p>
 </footer>
 
 </div>
@@ -383,111 +271,117 @@ const prices=[
 ];
 
 function createProducts(elementId,category){
-  const area=document.getElementById(elementId);
+const area=document.getElementById(elementId);
 
-  prices.forEach((price,index)=>{
-    const balance=(index+1)*1000;
-    const item=document.createElement("div");
-    item.className="product";
+prices.forEach((price,index)=>{
+const balance=(index+1)*1000;
+const item=document.createElement("div");
+item.className="product";
 
-    const heading=document.createElement("h3");
-    heading.textContent=category+" PLAN "+(index+1);
+const heading=document.createElement("h3");
+heading.textContent=category+" PLAN "+(index+1);
 
-    const balanceText=document.createElement("p");
-    balanceText.textContent="BALANCE: "+balance.toLocaleString("en-IN");
+const balanceText=document.createElement("p");
+balanceText.textContent="BALANCE: "+balance.toLocaleString("en-IN");
 
-    const priceText=document.createElement("p");
-    priceText.textContent="PRICE: ₹"+price.toLocaleString("en-IN");
+const priceText=document.createElement("p");
+priceText.textContent="PRICE: ₹"+price.toLocaleString("en-IN");
 
-    const button=document.createElement("button");
-    button.className="buy";
-    button.textContent="BUY NOW";
-    button.addEventListener("click",()=>{
-      openPayment(category,balance,price);
-    });
+const button=document.createElement("button");
+button.className="buy";
+button.textContent="BUY NOW";
+button.addEventListener("click",()=>openPayment(category,balance,price));
 
-    item.append(heading,balanceText,priceText,button);
-    area.appendChild(item);
-  });
+item.append(heading,balanceText,priceText,button);
+area.appendChild(item);
+});
 }
 
 createProducts("cardProducts","FF CARD");
 createProducts("redeemProducts","REDEEM CODE");
 
 function showPage(id){
-  document.getElementById("home").style.display="none";
-  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-  document.getElementById("payment").style.display="none";
-  document.getElementById(id).classList.add("active");
+document.getElementById("home").style.display="none";
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+document.getElementById("payment").style.display="none";
+document.getElementById(id).classList.add("active");
 }
 
 let timerInterval=null;
 let timeLeft=600;
 
 function openPayment(category,balance,price){
-  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-  document.getElementById("home").style.display="none";
-  document.getElementById("payment").style.display="block";
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+document.getElementById("home").style.display="none";
+document.getElementById("payment").style.display="block";
 
-  document.getElementById("selectedProduct").textContent=
-    category+" | BALANCE: "+balance.toLocaleString("en-IN")+
-    " | PRICE: ₹"+price.toLocaleString("en-IN");
+document.getElementById("selectedProduct").textContent=
+category+" | BALANCE: "+balance.toLocaleString("en-IN")+
+" | PRICE: ₹"+price.toLocaleString("en-IN");
 
-  document.getElementById("paymentFields").style.display="block";
-  document.getElementById("expired").style.display="none";
+document.getElementById("paymentFields").style.display="block";
+document.getElementById("paymentMessage").style.display="none";
+document.getElementById("expired").style.display="none";
 
-  document.getElementById("customerName").value="";
-  document.getElementById("whatsapp").value="";
-  document.getElementById("utr").value="";
+document.getElementById("customerName").value="";
+document.getElementById("whatsapp").value="";
+document.getElementById("utr").value="";
 
-  clearInterval(timerInterval);
-  timeLeft=600;
-  updateTimer();
+clearInterval(timerInterval);
+timeLeft=600;
+updateTimer();
 
-  timerInterval=setInterval(()=>{
-    timeLeft--;
-    updateTimer();
+timerInterval=setInterval(()=>{
+timeLeft--;
+updateTimer();
 
-    if(timeLeft<=0){
-      clearInterval(timerInterval);
-      document.getElementById("paymentFields").style.display="none";
-      document.getElementById("expired").style.display="block";
-    }
-  },1000);
+if(timeLeft<=0){
+clearInterval(timerInterval);
+document.getElementById("paymentFields").style.display="none";
+document.getElementById("paymentMessage").style.display="none";
+document.getElementById("expired").style.display="block";
+}
+},1000);
 }
 
 function updateTimer(){
-  const min=Math.floor(timeLeft/60);
-  const sec=timeLeft%60;
-  document.getElementById("timer").textContent=
-    String(min).padStart(2,"0")+":"+
-    String(sec).padStart(2,"0");
-}
-
-function closePayment(){
-  clearInterval(timerInterval);
-  document.getElementById("payment").style.display="none";
-  document.getElementById("home").style.display="flex";
+const min=Math.floor(timeLeft/60);
+const sec=timeLeft%60;
+document.getElementById("timer").textContent=
+String(min).padStart(2,"0")+":"+String(sec).padStart(2,"0");
 }
 
 function submitDetails(){
-  if(timeLeft<=0){
-    alert("ORDER EXPIRED");
-    return;
-  }
+if(timeLeft<=0){
+alert("ORDER EXPIRED");
+return;
+}
 
-  const name=document.getElementById("customerName").value.trim();
-  const phone=document.getElementById("whatsapp").value.trim();
-  const utr=document.getElementById("utr").value.trim();
+const name=document.getElementById("customerName").value.trim();
+const phone=document.getElementById("whatsapp").value.trim();
+const utr=document.getElementById("utr").value.trim();
 
-  if(!name||!phone||!utr){
-    alert("Please fill all details.");
-    return;
-  }
+if(!name||!phone||!utr){
+alert("Please fill all details.");
+return;
+}
 
-  alert("Details entered successfully. Payment is NOT verified yet. Please contact the store owner for manual verification.");
+/* Shows the requested message.
+   This is not an actual payment verification. */
+document.getElementById("paymentFields").style.display="none";
+document.getElementById("paymentMessage").style.display="block";
+}
+
+function retryPayment(){
+document.getElementById("paymentMessage").style.display="none";
+document.getElementById("paymentFields").style.display="block";
+}
+
+function closePayment(){
+clearInterval(timerInterval);
+document.getElementById("payment").style.display="none";
+document.getElementById("home").style.display="flex";
 }
 </script>
-
 </body>
 </html>
