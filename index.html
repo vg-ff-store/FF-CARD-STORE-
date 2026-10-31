@@ -4,231 +4,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#09000d">
+<meta name="theme-color" content="#020503">
 <title>FF CARD STORE</title>
-
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{box-sizing:border-box}
 body{
+ margin:0;background:#020503;color:white;
  font-family:Arial,sans-serif;
- background:#09000d;color:white;
- min-height:100vh;overflow-x:hidden;
 }
-body:before{
- content:"";position:fixed;inset:0;z-index:-1;
- background:
- radial-gradient(circle at 15% 20%,#65002e66,transparent 35%),
- radial-gradient(circle at 85% 75%,#3900a866,transparent 35%),
- linear-gradient(135deg,#080008,#140019,#080008);
- animation:bg 8s infinite alternate;
+main{max-width:620px;margin:auto;padding:10px}
+.poster{
+ position:relative;width:100%;
+ aspect-ratio:941/1672;
+ overflow:hidden;border-radius:14px;
+ box-shadow:0 0 22px #39ff1480;
 }
-@keyframes bg{to{filter:hue-rotate(35deg)}}
-header{
- text-align:center;padding:30px 12px 20px;
+.poster img{width:100%;height:100%;display:block}
+.hotspot{position:absolute;display:block}
+.card-link{left:3%;top:38%;width:94%;height:17%}
+.code-link{left:3%;top:56%;width:94%;height:20%}
+.youtube-link{left:13%;top:91.8%;width:36%;height:5.2%}
+.telegram-link{left:51%;top:91.8%;width:36%;height:5.2%}
+section{
+ margin:22px 2px;padding:20px 16px;
+ border:1px solid #39ff14;
+ border-radius:18px;
+ background:linear-gradient(145deg,#061108,#090411);
+ box-shadow:0 0 18px #39ff1430;
 }
-.logo{
- font-size:34px;font-weight:900;color:#ff174f;
- text-shadow:0 0 10px #ff174f,0 0 30px #ff174f;
+.purple{border-color:#d400ff}
+h2{font-size:27px;text-transform:uppercase}
+.green{color:#39ff14}
+.violet{color:#e64cff}
+.sub{color:#ccc;font-size:14px}
+.empty{
+ padding:16px;border:1px dashed #8ca58f;
+ border-radius:12px;background:#0007;
+ font-size:14px;line-height:1.5
 }
-header p{color:#d7b8df;margin-top:9px}
-.container{max-width:650px;margin:auto;padding:12px}
-.section-title{
- text-align:center;color:#ff3c75;
- font-size:23px;margin:25px 0 15px;
- text-shadow:0 0 12px #ff174f;
+.cta{
+ display:block;text-align:center;padding:14px;
+ margin-top:14px;border-radius:12px;
+ color:#001600;font-weight:bold;
+ text-decoration:none;
+ background:linear-gradient(90deg,#39ff14,#b4ff35);
 }
-.card{
- background:linear-gradient(145deg,#210c2a,#100b18);
- border:1px solid #a52c75;border-radius:16px;
- padding:18px;margin-bottom:14px;
- box-shadow:0 0 14px #a0006533;
+.purple .cta{
+ color:white;
+ background:linear-gradient(90deg,#8a00ff,#f000d8);
 }
-.offer{
- display:flex;align-items:center;justify-content:space-between;
- gap:10px;flex-wrap:wrap;
+.social{
+ display:grid;grid-template-columns:1fr 1fr;
+ gap:12px;margin:20px 2px;
 }
-.offer h3{font-size:18px}
-.offer p{color:#c9a9d2;margin-top:6px;font-size:14px}
-.amount{color:#ff4e88;font-size:22px;font-weight:bold}
-button{
- border:0;border-radius:9px;padding:12px 22px;
- background:linear-gradient(90deg,#ff174f,#a000ff);
- color:white;font-weight:bold;font-size:14px;
- cursor:pointer;box-shadow:0 0 13px #ff174f66;
+.social a{
+ padding:17px 5px;text-align:center;
+ border-radius:30px;color:white;
+ text-decoration:none;font-weight:bold;
+ background:#090d14;
 }
-button:active{transform:scale(.96)}
-.process{margin-top:12px;width:100%}
-.panel{
- display:none;background:#170c20;
- border:1px solid #ff3b83;border-radius:16px;
- padding:20px;margin:20px 0;text-align:center;
- box-shadow:0 0 20px #ff174f55;
-}
-.panel h2{color:#ff4d89;margin-bottom:12px}
-.qr-frame{
- background:#fff;padding:12px;border-radius:12px;
- width: min(100%,320px);margin:15px auto;
- min-height:200px;display:flex;align-items:center;
- justify-content:center;
-}
-.qr-frame img{
- display:block;width:100%;height:auto;
- max-width:290px;object-fit:contain;
-}
-.qr-error{color:#333;font-size:14px;line-height:1.5}
-input{
- width:100%;padding:13px;margin:8px 0;
- border-radius:8px;border:1px solid #9b3b85;
- background:#0c0710;color:white;font-size:15px;
-}
-.note{
- font-size:12px;color:#c9b5d0;line-height:1.5;
- margin-top:12px;
-}
-.close{
- background:#555;margin-top:12px;
-}
-footer{text-align:center;padding:25px 10px;color:#9e849f;font-size:12px}
+.youtube{border:1px solid red}
+.telegram{border:1px solid #16bfff}
+footer{text-align:center;color:#aaa;padding:15px;font-size:13px}
 </style>
 </head>
-
 <body>
+<main>
 
-<header>
- <div class="logo">FF CARD STORE</div>
- <p>Welcome to our digital store</p>
-</header>
+<div class="poster">
+<img src="mobile-poster.png" alt="FF CARD STORE">
+<a class="hotspot card-link" href="#card-store"></a>
+<a class="hotspot code-link" href="#redeem-store"></a>
+<a class="hotspot youtube-link"
+href="https://www.youtube.com/@vg_sveg_pro"
+target="_blank"></a>
+<a class="hotspot telegram-link"
+href="https://t.me/vgsvegpro"
+target="_blank"></a>
+</div>
 
-<main class="container">
+<section id="card-store">
+<h2 class="green">♛ CARD STORE</h2>
+<p class="sub">Browse available FF cards and rewards.</p>
+<div class="empty">
+No products added yet. Add only cards you own
+or are authorized to resell.
+</div>
+<a class="cta" href="https://t.me/vgsvegpro">
+Ask About Cards ↗
+</a>
+</section>
 
- <h2 class="section-title">🔥 BUY CARD</h2>
- <div id="buyOffers"></div>
+<section class="purple" id="redeem-store">
+<h2 class="violet">♛ REDEEM CODE STORE</h2>
+<p class="sub">Browse available redeem codes.</p>
+<div class="empty">
+No redeem codes added yet. Add only valid
+codes you are authorized to distribute.
+</div>
+<a class="cta" href="https://t.me/vgsvegpro">
+Ask About Redeem Codes ↗
+</a>
+</section>
 
- <h2 class="section-title">💎 REDEEM CODE</h2>
- <div id="redeemOffers"></div>
-
- <section class="panel" id="paymentPanel">
-  <h2>PAYMENT QR CODE</h2>
-  <p id="selectedOffer">Selected Offer</p>
-
-  <div class="qr-frame">
-   <img
-    src="./payment-qr.jpg"
-    alt="Payment QR Code"
-    onerror="this.style.display='none';document.getElementById('qrError').style.display='block';"
-   >
-   <div id="qrError" class="qr-error" style="display:none">
-    QR image could not be loaded.<br><br>
-    Please upload <b>payment-qr.jpg</b><br>
-    in the same GitHub folder as index.html.
-   </div>
-  </div>
-
-  <p>After paying, enter your details below.</p>
-  <input id="customerName" type="text" placeholder="Your Name">
-  <input id="transactionId" type="text" placeholder="UPI Transaction Reference">
-
-  <button class="process" onclick="showNotice()">SUBMIT DETAILS</button>
-  <p class="note">
-   This page does not verify payments or save orders.
-   Submitting details here does not confirm your purchase.
-   Contact the store owner for manual verification.
-  </p>
-  <button class="close" onclick="closePayment()">CLOSE</button>
- </section>
-
-</main>
+<nav class="social">
+<a class="youtube"
+href="https://www.youtube.com/@vg_sveg_pro"
+target="_blank">▶ YouTube</a>
+<a class="telegram"
+href="https://t.me/vgsvegpro"
+target="_blank">➤ Telegram</a>
+</nav>
 
 <footer>
- FF CARD STORE | Digital Store<br>
- Pay only to the official store payment account.
+♛ FF CARD STORE · Buy • Collect • Redeem ♛
 </footer>
 
-<script>
-const buyOffers = [
- {price:"₹99",balance:"1,000"},
- {price:"₹250",balance:"3,000"},
- {price:"₹500",balance:"4,600"},
- {price:"₹1,500",balance:"7,500"},
- {price:"₹2,000",balance:"10,000",tag:"SURPRISE OFFER"},
- {price:"₹3,000",balance:"16,000",tag:"SURPRISE OFFER"},
- {price:"₹5,000",balance:"28,000",tag:"SURPRISE OFFER"}
-];
-
-const redeemOffers = [
- {price:"₹150",balance:"300"},
- {price:"₹250",balance:"500"},
- {price:"₹500",balance:"1,200"},
- {price:"₹1,000",balance:"2,500"},
- {price:"₹1,500",balance:"3,800"},
- {price:"₹2,200",balance:"5,500"},
- {price:"₹3,000",balance:"8,000"}
-];
-
-function renderOffers(items,containerId,type){
- const container=document.getElementById(containerId);
- items.forEach(item=>{
-  const card=document.createElement("div");
-  card.className="card";
-  const offer=document.createElement("div");
-  offer.className="offer";
-  const details=document.createElement("div");
-  const heading=document.createElement("h3");
-  heading.textContent=item.tag ? "⭐ "+item.tag : type;
-  const description=document.createElement("p");
-  description.textContent=type==="BUY CARD"
-   ? "Get "+item.balance+" balance"
-   : "Redeem value: "+item.balance;
-  details.append(heading,description);
-
-  const amount=document.createElement("div");
-  amount.className="amount";
-  amount.textContent=item.price;
-
-  offer.append(details,amount);
-  const button=document.createElement("button");
-  button.className="process";
-  button.textContent="PROCESS";
-  button.addEventListener("click",()=>{
-   openPayment(type,item.price,item.balance);
-  });
-  card.append(offer,button);
-  container.appendChild(card);
- });
-}
-
-function openPayment(type,price,balance){
- document.getElementById("selectedOffer").textContent=
-  type+" | "+price+" | "+balance;
- document.getElementById("paymentPanel").style.display="block";
- document.getElementById("qrError").style.display="none";
-
- const qr=document.querySelector(".qr-frame img");
- qr.style.display="block";
- qr.src="./payment-qr.jpg";
- document.getElementById("paymentPanel").scrollIntoView({
-  behavior:"smooth",block:"center"
- });
-}
-
-function closePayment(){
- document.getElementById("paymentPanel").style.display="none";
-}
-
-function showNotice(){
- const name=document.getElementById("customerName").value.trim();
- const reference=document.getElementById("transactionId").value.trim();
-
- if(!name || !reference){
-  alert("Please enter your name and UPI transaction reference.");
-  return;
- }
- alert("Details entered. This demo page does not send or save them. Contact the store owner for payment verification.");
-}
-
-renderOffers(buyOffers,"buyOffers","BUY CARD");
-renderOffers(redeemOffers,"redeemOffers","REDEEM CODE");
-</script>
-
+</main>
 </body>
 </html>
