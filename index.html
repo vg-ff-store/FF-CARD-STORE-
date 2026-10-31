@@ -4,260 +4,449 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090611">
+<meta name="theme-color" content="#090014">
 <title>FF CARD STORE</title>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
- background:#090611;color:white;font-family:Arial,sans-serif;min-height:100vh;
- background-image:radial-gradient(circle at 20% 10%,#41105b66,transparent 35%),radial-gradient(circle at 90% 80%,#80104c44,transparent 35%);
+  background:#080012;
+  color:white;
+  font-family:Arial,sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
 }
-header{text-align:center;padding:25px 12px 20px;border-bottom:1px solid #a32cff55}
-.logo{font-size:29px;font-weight:900;color:white;text-shadow:0 0 12px #c000ff,0 0 25px #8b00ff}
-.logo span{color:#ff35bc}
-.tagline{color:#bdaacb;font-size:11px;margin-top:8px;letter-spacing:2px}
-.container{max-width:480px;margin:auto;padding:20px 15px}
-.home-title{text-align:center;margin:22px 0 25px}
-.home-title h2{font-size:23px}
-.home-title p{color:#ad9bbd;font-size:12px;margin-top:8px}
-.menu-btn{
- width:100%;padding:25px 15px;margin-bottom:18px;border:1px solid #c13cff;border-radius:17px;
- background:linear-gradient(120deg,#210b36,#39104e,#180b2a);color:white;font-size:21px;font-weight:bold;
- box-shadow:0 0 15px #a000ff44,inset 0 0 15px #b000ff22;cursor:pointer;
+
+/* ANIMATED LIVE WALLPAPER BACKGROUND */
+.wallpaper{
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  overflow:hidden;
+  background:linear-gradient(135deg,#090014,#18002e,#090014,#24002c);
+  background-size:400% 400%;
+  animation:bgMove 12s ease infinite;
 }
-.menu-btn:active{transform:scale(.97)}
-.menu-btn .emoji{font-size:28px;display:block;margin-bottom:9px}
-.menu-btn small{display:block;font-size:11px;color:#c8a9d9;margin-top:8px;font-weight:normal}
-.section{display:none}
-.section.active{display:block}
-.back{background:#21132c;border:1px solid #8740a8;color:white;padding:10px 17px;border-radius:9px;margin-bottom:18px;cursor:pointer}
-.section h2,#checkout h2{text-align:center;color:#ff68d0;margin:8px 0 20px}
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+.glow{
+  position:absolute;
+  width:260px;
+  height:260px;
+  border-radius:50%;
+  filter:blur(90px);
+  opacity:.55;
+  animation:float 9s ease-in-out infinite alternate;
+}
+.glow.one{background:#a000ff;top:5%;left:-100px}
+.glow.two{background:#ff008c;right:-100px;top:40%;animation-delay:2s}
+.glow.three{background:#3d00ff;bottom:-100px;left:30%;animation-delay:4s}
+@keyframes float{
+  from{transform:translate(0,0) scale(1)}
+  to{transform:translate(80px,-60px) scale(1.35)}
+}
+.particles{
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px,#fff,transparent),
+    radial-gradient(2px 2px at 100px 150px,#ff55e8,transparent),
+    radial-gradient(2px 2px at 200px 80px,#a855ff,transparent),
+    radial-gradient(2px 2px at 300px 220px,#fff,transparent);
+  background-size:350px 300px;
+  animation:particleMove 18s linear infinite;
+  opacity:.65;
+}
+@keyframes particleMove{
+  from{transform:translateY(0)}
+  to{transform:translateY(-300px)}
+}
+.wallpaper:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(ellipse at center,transparent 20%,#080012 100%);
+}
+
+/* MAIN DESIGN */
+.container{
+  width:100%;
+  max-width:480px;
+  margin:auto;
+  padding:18px 14px 30px;
+  position:relative;
+}
+header{
+  text-align:center;
+  padding:24px 10px;
+  border:1px solid #a900ff;
+  border-radius:18px;
+  background:rgba(15,0,30,.72);
+  box-shadow:0 0 22px #a000ff55,inset 0 0 18px #a000ff22;
+}
+.logo{
+  font-size:29px;
+  font-weight:900;
+  color:#fff;
+  text-shadow:0 0 10px #d000ff,0 0 25px #a000ff;
+}
+.subtitle{
+  color:#ff7be8;
+  font-size:12px;
+  margin-top:8px;
+  letter-spacing:2px;
+}
+.section-title{
+  text-align:center;
+  margin:25px 0 15px;
+  color:#ff76ec;
+  font-size:19px;
+  text-shadow:0 0 12px #ff00c8;
+}
+.home-option{
+  width:100%;
+  padding:23px 12px;
+  margin:13px 0;
+  border-radius:16px;
+  border:1px solid #c000ff;
+  background:linear-gradient(120deg,rgba(76,0,120,.85),rgba(25,0,50,.9));
+  color:white;
+  font-size:20px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 0 18px #a000ff55;
+  transition:.25s;
+}
+.home-option:active{transform:scale(.97)}
+.home-option:hover{box-shadow:0 0 25px #ff00d4}
+.page{display:none}
+.page.active{display:block}
+.back{
+  background:#25003d;
+  border:1px solid #c000ff;
+  color:white;
+  padding:10px 16px;
+  border-radius:9px;
+  cursor:pointer;
+  margin:15px 0;
+}
 .product{
- background:linear-gradient(120deg,#1b1028,#29123b);border:1px solid #7434a0;border-radius:13px;
- padding:14px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:8px;
- box-shadow:0 0 12px #8700ff22;
+  background:rgba(25,0,45,.88);
+  border:1px solid #8d00d9;
+  border-radius:13px;
+  padding:15px;
+  margin:12px 0;
+  box-shadow:0 0 13px #8700ff33;
 }
-.product h3{font-size:14px}
-.product p{color:#c4a9d4;font-size:12px;margin-top:6px}
-.price{font-size:18px;color:#ff73d0;font-weight:bold;margin-bottom:8px;text-align:right}
-.buy,.action{
- background:linear-gradient(90deg,#a900ff,#fa27a8);border:0;color:white;padding:10px 14px;
- border-radius:8px;font-weight:bold;cursor:pointer;
+.product h3{color:#ff83ed;font-size:17px}
+.product p{margin-top:8px;color:#eee;font-size:14px}
+.buy{
+  width:100%;
+  margin-top:13px;
+  border:0;
+  padding:12px;
+  border-radius:9px;
+  color:white;
+  font-weight:bold;
+  font-size:15px;
+  background:linear-gradient(90deg,#8300ff,#ff008c);
+  cursor:pointer;
 }
-.offer{color:#ffdc51;font-size:10px;margin-top:5px}
-#checkout{display:none;text-align:center}
-.panel{background:#1c1028;border:1px solid #a53be2;border-radius:15px;padding:17px;margin-top:15px}
-.note{font-size:11px;color:#c4b2d0;line-height:1.6;margin:10px 0}
-.action{width:100%;padding:13px;font-size:15px;margin-top:10px}
-#qr{width:220px;height:220px;object-fit:contain;background:white;padding:8px;border-radius:10px;margin:15px auto;display:block}
-.hidden{display:none!important}
-.timer{font-size:43px;font-weight:900;color:#ff304c;text-shadow:0 0 15px #ff003c;margin:12px 0 0;font-variant-numeric:tabular-nums}
-.timer-label{font-size:13px;color:#ffb4c1}
-.expired{color:#ff304c;font-size:22px;font-weight:bold;margin:18px 0}
-.status{padding:10px;border:1px solid #5dce83;border-radius:9px;color:#8cffad;margin:12px 0;font-size:13px}
-.field{width:100%;padding:12px;margin:7px 0;border:1px solid #71418c;border-radius:8px;background:#100b19;color:white;font-size:14px}
-footer{text-align:center;padding:25px 10px;border-top:1px solid #702b8b55;color:#a995b8;font-size:12px;margin-top:30px}
-.social{display:flex;justify-content:center;gap:22px;margin:15px}
-.social a{color:#ff78d2;text-decoration:none;font-size:14px;font-weight:bold}
+.buy:active{transform:scale(.97)}
+.notice{
+  font-size:11px;
+  color:#cbb6d9;
+  line-height:1.5;
+  margin:12px 0;
+}
+
+/* PAYMENT */
+#payment{
+  display:none;
+  background:rgba(19,0,35,.96);
+  border:1px solid #e000ff;
+  border-radius:17px;
+  padding:17px;
+  margin-top:20px;
+  box-shadow:0 0 22px #a000ff66;
+}
+#payment h2{
+  text-align:center;
+  color:#ff77e9;
+  margin-bottom:15px;
+}
+.qr{
+  display:block;
+  width:210px;
+  max-width:100%;
+  height:auto;
+  margin:15px auto;
+  border-radius:12px;
+  border:2px solid #e000ff;
+  background:white;
+}
+.timer{
+  text-align:center;
+  font-size:25px;
+  font-weight:bold;
+  color:#ff5bdc;
+  margin:12px;
+  text-shadow:0 0 12px #ff00d4;
+}
+.field{
+  width:100%;
+  padding:13px;
+  margin:7px 0;
+  border-radius:8px;
+  border:1px solid #8500c9;
+  background:#10001e;
+  color:white;
+  outline:none;
+}
+.field:focus{border-color:#ff36df}
+.submit{
+  width:100%;
+  padding:13px;
+  margin-top:10px;
+  background:linear-gradient(90deg,#7900ff,#ed008d);
+  color:white;
+  border:0;
+  border-radius:9px;
+  font-weight:bold;
+  cursor:pointer;
+}
+#expired{
+  display:none;
+  text-align:center;
+  color:#ff5555;
+  font-size:22px;
+  font-weight:bold;
+  padding:20px 0;
+}
+footer{
+  text-align:center;
+  padding:25px 5px 10px;
+  color:#cbb8d5;
+  font-size:12px;
+}
+.social{
+  display:inline-block;
+  margin:12px 5px;
+  padding:10px 16px;
+  border-radius:20px;
+  color:white;
+  text-decoration:none;
+  background:linear-gradient(90deg,#7900ff,#ed008d);
+  font-weight:bold;
+}
 </style>
 </head>
+
 <body>
+<div class="wallpaper">
+  <div class="glow one"></div>
+  <div class="glow two"></div>
+  <div class="glow three"></div>
+  <div class="particles"></div>
+</div>
+
+<div class="container">
 
 <header>
- <div class="logo">FF <span>CARD STORE</span></div>
- <div class="tagline">GAMING STORE • FAST • SIMPLE</div>
+  <div class="logo">🔥 FF CARD STORE</div>
+  <div class="subtitle">PREMIUM GAMING STORE</div>
 </header>
 
-<main class="container">
+<!-- HOME -->
 <div id="home">
- <div class="home-title">
-  <h2>WELCOME GAMER 🔥</h2>
-  <p>Choose your product category</p>
- </div>
- <button class="menu-btn" onclick="showSection('cards')">
-  <span class="emoji">💎</span>FF CARD
-  <small>Explore all FF Card plans</small>
- </button>
- <button class="menu-btn" onclick="showSection('redeem')">
-  <span class="emoji">🔒</span>REDEEM CODE
-  <small>Explore all Redeem Code plans</small>
- </button>
+  <h2 class="section-title">⚡ SELECT YOUR CATEGORY ⚡</h2>
+
+  <button class="home-option" onclick="showPage('cards')">
+    💎 FF CARD
+  </button>
+
+  <button class="home-option" onclick="showPage('redeem')">
+    🔒 REDEEM CODE
+  </button>
 </div>
 
-<div id="cards" class="section">
- <button class="back" onclick="goHome()">← BACK</button>
- <h2>💎 FF CARD PLANS</h2>
- <p class="note" style="text-align:center">Select your balance and price</p>
- <div id="cardList"></div>
+<!-- FF CARD PRODUCTS -->
+<div id="cards" class="page">
+  <button class="back" onclick="showPage('home')">← BACK</button>
+  <h2 class="section-title">💎 FF CARD PLANS</h2>
+  <div id="cardProducts"></div>
 </div>
 
-<div id="redeem" class="section">
- <button class="back" onclick="goHome()">← BACK</button>
- <h2>🔒 REDEEM CODE PLANS</h2>
- <p class="note" style="text-align:center">Select your balance and price</p>
- <div id="redeemList"></div>
+<!-- REDEEM PRODUCTS -->
+<div id="redeem" class="page">
+  <button class="back" onclick="showPage('home')">← BACK</button>
+  <h2 class="section-title">🔒 REDEEM CODE PLANS</h2>
+  <div id="redeemProducts"></div>
 </div>
 
-<div id="checkout">
- <button class="back" onclick="goHome()">← HOME</button>
- <h2>🛒 CHECKOUT & PAYMENT</h2>
+<!-- PAYMENT PANEL -->
+<div id="payment">
+  <h2>💳 COMPLETE PAYMENT</h2>
 
- <div class="panel">
-  <h3 id="selectedName"></h3>
-  <p id="selectedBalance" style="color:#c4a9d4;margin:10px"></p>
-  <h2 id="selectedPrice"></h2>
-  <p class="note">Please scan the QR code and pay the exact amount.</p>
- </div>
+  <p id="selectedProduct" style="text-align:center"></p>
 
- <div class="panel" id="payment">
-  <h3>💳 COMPLETE YOUR PAYMENT</h3>
+  <img src="payment-qr.jpg" class="qr" alt="Payment QR Code">
+
+  <p style="text-align:center;color:#ff9cec">
+    Scan QR Code to make payment
+  </p>
+
   <div class="timer" id="timer">10:00</div>
-  <div class="timer-label">TIME LEFT</div>
-  <h2 id="payAmount" style="color:#ffdc51;margin:15px"></h2>
 
-  <div id="paymentActive">
-   <img id="qr" src="payment-qr.jpg" alt="Payment QR Code">
-   <p class="note">Scan using any UPI app and pay the exact amount shown above.</p>
-   <input class="field" id="buyerName" placeholder="Your Name">
-   <input class="field" id="playerId" placeholder="Free Fire UID (if required)">
-   <input class="field" id="buyerContact" placeholder="WhatsApp Number">
-   <input class="field" id="utr" placeholder="Payment Reference / UTR">
-   <button class="action" onclick="submitPayment()">SUBMIT PAYMENT DETAILS</button>
-   <div class="status">Waiting for payment verification</div>
+  <div id="paymentFields">
+    <input class="field" id="customerName" placeholder="Your Name">
+    <input class="field" id="whatsapp" type="tel" placeholder="WhatsApp Number">
+    <input class="field" id="utr" placeholder="Payment Reference / UTR">
+
+    <button class="submit" onclick="submitDetails()">
+      SUBMIT PAYMENT DETAILS
+    </button>
+    <p class="notice">
+      Payment details are submitted for manual verification.
+      Do not share your UPI PIN, OTP or banking password.
+    </p>
   </div>
 
-  <div id="paymentExpired" class="hidden">
-   <div class="expired">⏰ ORDER EXPIRED</div>
-   <p class="note">Your 10-minute payment session has ended. Please select the product again.</p>
-   <button class="action" onclick="goHome()">BACK TO HOME</button>
-  </div>
- </div>
+  <div id="expired">⏰ ORDER EXPIRED</div>
+  <button class="back" onclick="closePayment()">← CLOSE</button>
 </div>
-</main>
 
 <footer>
- <div>FOLLOW OUR CHANNELS</div>
- <div class="social">
-  <a href="YOUR_YOUTUBE_LINK" target="_blank">▶ YouTube</a>
-  <a href="YOUR_TELEGRAM_LINK" target="_blank">✈ Telegram</a>
- </div>
- © 2026 FF CARD STORE
+  <p>FOLLOW US</p>
+  <a class="social" href="YOUR_YOUTUBE_LINK" target="_blank">▶ YouTube</a>
+  <a class="social" href="YOUR_TELEGRAM_LINK" target="_blank">✈ Telegram</a>
+  <p style="margin-top:15px">© 2026 FF CARD STORE</p>
 </footer>
 
+</div>
+
 <script>
-// Sample prices and balances: replace with your actual available products.
-const cardPrices=[
-99,149,199,249,299,349,399,449,499,549,
-599,649,699,749,799,849,899,949,999,1099,
-1199,1299,1399,1499,1599,1699,1799,1899,1999,2199,
-2399,2599,2799,2999,3199,3399,3599,3799,3999,4199,
-4399,4599,4799,4999,5499,5999,6499,6999,7499,7999
+const prices = [
+  99,149,199,249,299,349,399,449,499,549,
+  599,649,699,749,799,849,899,949,999,1099,
+  1199,1299,1399,1499,1599,1699,1799,1899,1999,2199,
+  2399,2599,2799,2999,3199,3399,3599,3799,3999,4199,
+  4399,4599,4799,4999,5499,5999,6499,6999,7499,7999
 ];
 
-const redeemPrices=[
-99,149,199,249,299,349,399,449,499,549,
-599,649,699,749,799,849,899,949,999,1099,
-1199,1299,1399,1499,1599,1699,1799,1899,1999,2199,
-2399,2599,2799,2999,3199,3399,3599,3799,3999,4199,
-4399,4599,4799,4999,5499,5999,6499,6999,7499,7999
-];
+function createProducts(elementId,category){
+  const area=document.getElementById(elementId);
 
-let selected=null;
+  prices.forEach((price,index)=>{
+    const balance=(index+1)*1000;
+    const item=document.createElement("div");
+    item.className="product";
+
+    const heading=document.createElement("h3");
+    heading.textContent=category+" PLAN "+(index+1);
+
+    const balanceText=document.createElement("p");
+    balanceText.textContent="BALANCE: "+balance.toLocaleString("en-IN");
+
+    const priceText=document.createElement("p");
+    priceText.textContent="PRICE: ₹"+price.toLocaleString("en-IN");
+
+    const button=document.createElement("button");
+    button.className="buy";
+    button.textContent="BUY NOW";
+    button.addEventListener("click",()=>{
+      openPayment(category,balance,price);
+    });
+
+    item.append(heading,balanceText,priceText,button);
+    area.appendChild(item);
+  });
+}
+
+createProducts("cardProducts","FF CARD");
+createProducts("redeemProducts","REDEEM CODE");
+
+function showPage(id){
+  document.getElementById("home").style.display="none";
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById("payment").style.display="none";
+  document.getElementById(id).classList.add("active");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
 let timerInterval=null;
-let secondsLeft=600;
+let timeLeft=600;
 
-function makeProducts(prices,type){
- return prices.map((price,i)=>{
-  let balance=(i+1)*1000;
-  let offer=i>=39?"⭐ SPECIAL OFFER":"";
-  return `<div class="product">
-   <div>
-    <h3>${type} #${i+1}</h3>
-    <p>BALANCE: ${balance.toLocaleString("en-IN")}</p>
-    ${offer?`<div class="offer">${offer}</div>`:""}
-   </div>
-   <div>
-    <div class="price">₹${price.toLocaleString("en-IN")}</div>
-    <button class="buy" onclick="choose('${type}',${price},${balance})">BUY NOW</button>
-   </div>
-  </div>`;
- }).join("");
-}
+function openPayment(category,balance,price){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById("home").style.display="none";
 
-document.getElementById("cardList").innerHTML=makeProducts(cardPrices,"FF CARD");
-document.getElementById("redeemList").innerHTML=makeProducts(redeemPrices,"REDEEM CODE");
+  document.getElementById("payment").style.display="block";
+  document.getElementById("selectedProduct").textContent=
+    category+" | BALANCE: "+balance.toLocaleString("en-IN")+
+    " | PRICE: ₹"+price.toLocaleString("en-IN");
 
-function stopTimer(){
- if(timerInterval){clearInterval(timerInterval);timerInterval=null}
-}
-function hideAll(){
- stopTimer();
- document.getElementById("home").style.display="none";
- ["cards","redeem"].forEach(id=>document.getElementById(id).classList.remove("active"));
- document.getElementById("checkout").style.display="none";
-}
-function showSection(id){
- hideAll();
- document.getElementById(id).classList.add("active");
-}
-function goHome(){
- hideAll();
- document.getElementById("home").style.display="block";
-}
-function choose(type,price,balance){
- selected={type,price,balance};
- hideAll();
+  document.getElementById("paymentFields").style.display="block";
+  document.getElementById("expired").style.display="none";
 
- document.getElementById("checkout").style.display="block";
- document.getElementById("selectedName").textContent=type;
- document.getElementById("selectedBalance").textContent="BALANCE: "+balance.toLocaleString("en-IN");
- document.getElementById("selectedPrice").textContent="PRICE: ₹"+price.toLocaleString("en-IN");
+  document.getElementById("customerName").value="";
+  document.getElementById("whatsapp").value="";
+  document.getElementById("utr").value="";
 
- document.getElementById("buyerName").value="";
- document.getElementById("playerId").value="";
- document.getElementById("buyerContact").value="";
- document.getElementById("utr").value="";
-
- document.getElementById("paymentActive").classList.remove("hidden");
- document.getElementById("paymentExpired").classList.add("hidden");
- document.getElementById("payAmount").textContent="PAY ₹"+price.toLocaleString("en-IN");
-
- startTimer();
-}
-function startTimer(){
- stopTimer();
- secondsLeft=600;
- updateTimer();
- timerInterval=setInterval(()=>{
-  secondsLeft--;
+  clearInterval(timerInterval);
+  timeLeft=600;
   updateTimer();
-  if(secondsLeft<=0){
-   stopTimer();
-   document.getElementById("paymentActive").classList.add("hidden");
-   document.getElementById("paymentExpired").classList.remove("hidden");
-  }
- },1000);
-}
-function updateTimer(){
- let min=Math.floor(secondsLeft/60);
- let sec=secondsLeft%60;
- document.getElementById("timer").textContent=
-  String(min).padStart(2,"0")+":"+String(sec).padStart(2,"0");
-}
-function submitPayment(){
- if(secondsLeft<=0){
-  alert("Payment session expired. Please select a product again.");
-  return;
- }
- let name=document.getElementById("buyerName").value.trim();
- let contact=document.getElementById("buyerContact").value.trim();
- let utr=document.getElementById("utr").value.trim();
 
- if(!name||!contact||!utr){
-  alert("Please enter your name, WhatsApp number and payment reference.");
-  return;
- }
- alert("Payment details submitted. Payment must be verified by the store owner before confirming the order.");
+  timerInterval=setInterval(()=>{
+    timeLeft--;
+    updateTimer();
+
+    if(timeLeft<=0){
+      clearInterval(timerInterval);
+      document.getElementById("paymentFields").style.display="none";
+      document.getElementById("expired").style.display="block";
+    }
+  },1000);
+
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function updateTimer(){
+  const min=Math.floor(timeLeft/60);
+  const sec=timeLeft%60;
+  document.getElementById("timer").textContent=
+    String(min).padStart(2,"0")+":"+
+    String(sec).padStart(2,"0");
+}
+
+function closePayment(){
+  clearInterval(timerInterval);
+  document.getElementById("payment").style.display="none";
+  document.getElementById("home").style.display="block";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function submitDetails(){
+  if(timeLeft<=0){
+    alert("ORDER EXPIRED");
+    return;
+  }
+
+  const name=document.getElementById("customerName").value.trim();
+  const phone=document.getElementById("whatsapp").value.trim();
+  const utr=document.getElementById("utr").value.trim();
+
+  if(!name||!phone||!utr){
+    alert("Please fill all details.");
+    return;
+  }
+
+  alert(
+    "Details entered successfully. Payment is NOT verified yet. Please contact the store owner for manual verification."
+  );
 }
 </script>
 </body>
