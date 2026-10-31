@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#090611">
 <title>FF CARD STORE</title>
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
@@ -14,7 +13,7 @@ body{
  background-image:radial-gradient(circle at 20% 10%,#41105b66,transparent 35%),radial-gradient(circle at 90% 80%,#80104c44,transparent 35%);
 }
 header{text-align:center;padding:25px 12px 20px;border-bottom:1px solid #a32cff55}
-.logo{font-size:29px;font-weight:900;color:#fff;text-shadow:0 0 12px #c000ff,0 0 25px #8b00ff}
+.logo{font-size:29px;font-weight:900;color:white;text-shadow:0 0 12px #c000ff,0 0 25px #8b00ff}
 .logo span{color:#ff35bc}
 .tagline{color:#bdaacb;font-size:11px;margin-top:8px;letter-spacing:2px}
 .container{max-width:480px;margin:auto;padding:20px 15px}
@@ -35,8 +34,8 @@ header{text-align:center;padding:25px 12px 20px;border-bottom:1px solid #a32cff5
 .section h2,#checkout h2{text-align:center;color:#ff68d0;margin:8px 0 20px}
 .product{
  background:linear-gradient(120deg,#1b1028,#29123b);border:1px solid #7434a0;border-radius:13px;
- padding:14px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;
- box-shadow:0 0 12px #8700ff22;gap:8px;
+ padding:14px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:8px;
+ box-shadow:0 0 12px #8700ff22;
 }
 .product h3{font-size:14px}
 .product p{color:#c4a9d4;font-size:12px;margin-top:6px}
@@ -48,32 +47,28 @@ header{text-align:center;padding:25px 12px 20px;border-bottom:1px solid #a32cff5
 .offer{color:#ffdc51;font-size:10px;margin-top:5px}
 #checkout{display:none;text-align:center}
 .panel{background:#1c1028;border:1px solid #a53be2;border-radius:15px;padding:17px;margin-top:15px}
-.field{width:100%;padding:13px;margin:7px 0;border:1px solid #71418c;border-radius:8px;background:#100b19;color:white;font-size:14px}
 .note{font-size:11px;color:#c4b2d0;line-height:1.6;margin:10px 0}
 .action{width:100%;padding:13px;font-size:15px;margin-top:10px}
 #qr{width:220px;height:220px;object-fit:contain;background:white;padding:8px;border-radius:10px;margin:15px auto;display:block}
 .hidden{display:none!important}
-.timer{
- font-size:43px;font-weight:900;color:#ff304c;text-shadow:0 0 15px #ff003c;
- margin:12px 0 0;font-variant-numeric:tabular-nums;
-}
+.timer{font-size:43px;font-weight:900;color:#ff304c;text-shadow:0 0 15px #ff003c;margin:12px 0 0;font-variant-numeric:tabular-nums}
 .timer-label{font-size:13px;color:#ffb4c1}
 .expired{color:#ff304c;font-size:22px;font-weight:bold;margin:18px 0}
 .status{padding:10px;border:1px solid #5dce83;border-radius:9px;color:#8cffad;margin:12px 0;font-size:13px}
+.field{width:100%;padding:12px;margin:7px 0;border:1px solid #71418c;border-radius:8px;background:#100b19;color:white;font-size:14px}
 footer{text-align:center;padding:25px 10px;border-top:1px solid #702b8b55;color:#a995b8;font-size:12px;margin-top:30px}
 .social{display:flex;justify-content:center;gap:22px;margin:15px}
 .social a{color:#ff78d2;text-decoration:none;font-size:14px;font-weight:bold}
 </style>
 </head>
-
 <body>
+
 <header>
  <div class="logo">FF <span>CARD STORE</span></div>
  <div class="tagline">GAMING STORE • FAST • SIMPLE</div>
 </header>
 
 <main class="container">
-
 <div id="home">
  <div class="home-title">
   <h2>WELCOME GAMER 🔥</h2>
@@ -92,14 +87,14 @@ footer{text-align:center;padding:25px 10px;border-top:1px solid #702b8b55;color:
 <div id="cards" class="section">
  <button class="back" onclick="goHome()">← BACK</button>
  <h2>💎 FF CARD PLANS</h2>
- <p class="note" style="text-align:center">Choose your diamond balance</p>
+ <p class="note" style="text-align:center">Select your balance and price</p>
  <div id="cardList"></div>
 </div>
 
 <div id="redeem" class="section">
  <button class="back" onclick="goHome()">← BACK</button>
  <h2>🔒 REDEEM CODE PLANS</h2>
- <p class="note" style="text-align:center">Choose your redeem balance</p>
+ <p class="note" style="text-align:center">Select your balance and price</p>
  <div id="redeemList"></div>
 </div>
 
@@ -111,37 +106,33 @@ footer{text-align:center;padding:25px 10px;border-top:1px solid #702b8b55;color:
   <h3 id="selectedName"></h3>
   <p id="selectedBalance" style="color:#c4a9d4;margin:10px"></p>
   <h2 id="selectedPrice"></h2>
-
-  <input class="field" id="buyerName" placeholder="Your Name">
-  <input class="field" id="playerId" placeholder="Free Fire UID (if required)">
-  <input class="field" id="buyerContact" placeholder="WhatsApp Number">
-
-  <button class="action" onclick="showPayment()">OPEN PAYMENT QR</button>
+  <p class="note">Please scan the QR code and pay the exact amount.</p>
  </div>
 
- <div class="panel hidden" id="payment">
+ <div class="panel" id="payment">
   <h3>💳 COMPLETE YOUR PAYMENT</h3>
-  <p class="note">Scan QR code using any UPI app</p>
   <div class="timer" id="timer">10:00</div>
   <div class="timer-label">TIME LEFT</div>
   <h2 id="payAmount" style="color:#ffdc51;margin:15px"></h2>
 
   <div id="paymentActive">
    <img id="qr" src="payment-qr.jpg" alt="Payment QR Code">
-   <p class="note">Pay the exact amount shown above using your UPI app.</p>
-   <input class="field" id="utr" placeholder="Enter UPI Payment Reference / UTR">
+   <p class="note">Scan using any UPI app and pay the exact amount shown above.</p>
+   <input class="field" id="buyerName" placeholder="Your Name">
+   <input class="field" id="playerId" placeholder="Free Fire UID (if required)">
+   <input class="field" id="buyerContact" placeholder="WhatsApp Number">
+   <input class="field" id="utr" placeholder="Payment Reference / UTR">
    <button class="action" onclick="submitPayment()">SUBMIT PAYMENT DETAILS</button>
-   <div class="status">Waiting for payment details...</div>
+   <div class="status">Waiting for payment verification</div>
   </div>
 
   <div id="paymentExpired" class="hidden">
    <div class="expired">⏰ ORDER EXPIRED</div>
-   <p class="note">Your 10-minute payment time has ended. Please go back and select the product again.</p>
+   <p class="note">Your 10-minute payment session has ended. Please select the product again.</p>
    <button class="action" onclick="goHome()">BACK TO HOME</button>
   </div>
  </div>
 </div>
-
 </main>
 
 <footer>
@@ -154,7 +145,7 @@ footer{text-align:center;padding:25px 10px;border-top:1px solid #702b8b55;color:
 </footer>
 
 <script>
-// 50 sample FF CARD price plans
+// Sample prices and balances: replace with your actual available products.
 const cardPrices=[
 99,149,199,249,299,349,399,449,499,549,
 599,649,699,749,799,849,899,949,999,1099,
@@ -163,7 +154,6 @@ const cardPrices=[
 4399,4599,4799,4999,5499,5999,6499,6999,7499,7999
 ];
 
-// 50 sample REDEEM CODE price plans
 const redeemPrices=[
 99,149,199,249,299,349,399,449,499,549,
 599,649,699,749,799,849,899,949,999,1099,
@@ -178,20 +168,19 @@ let secondsLeft=600;
 
 function makeProducts(prices,type){
  return prices.map((price,i)=>{
-  let balance=type==="FF CARD"?(i+1)*1000:(i+1)*500;
-  let offer=(i>=39)?"⭐ SPECIAL OFFER":"";
-  return `
-   <div class="product">
-    <div>
-     <h3>${type==="FF CARD"?"💎":"🔒"} ${type} #${i+1}</h3>
-     <p>Balance: ${balance.toLocaleString("en-IN")} ${type==="FF CARD"?"Diamonds":"Redeem Value"}</p>
-     ${offer?`<div class="offer">${offer}</div>`:""}
-    </div>
-    <div>
-     <div class="price">₹${price.toLocaleString("en-IN")}</div>
-     <button class="buy" onclick="choose('${type}',${price},${balance})">BUY NOW</button>
-    </div>
-   </div>`;
+  let balance=(i+1)*1000;
+  let offer=i>=39?"⭐ SPECIAL OFFER":"";
+  return `<div class="product">
+   <div>
+    <h3>${type} #${i+1}</h3>
+    <p>BALANCE: ${balance.toLocaleString("en-IN")}</p>
+    ${offer?`<div class="offer">${offer}</div>`:""}
+   </div>
+   <div>
+    <div class="price">₹${price.toLocaleString("en-IN")}</div>
+    <button class="buy" onclick="choose('${type}',${price},${balance})">BUY NOW</button>
+   </div>
+  </div>`;
  }).join("");
 }
 
@@ -219,33 +208,19 @@ function choose(type,price,balance){
  selected={type,price,balance};
  hideAll();
 
- let c=document.getElementById("checkout");
- c.style.display="block";
-
+ document.getElementById("checkout").style.display="block";
  document.getElementById("selectedName").textContent=type;
- document.getElementById("selectedBalance").textContent=
-  "Balance: "+balance.toLocaleString("en-IN");
- document.getElementById("selectedPrice").textContent=
-  "Price: ₹"+price.toLocaleString("en-IN");
+ document.getElementById("selectedBalance").textContent="BALANCE: "+balance.toLocaleString("en-IN");
+ document.getElementById("selectedPrice").textContent="PRICE: ₹"+price.toLocaleString("en-IN");
 
- document.getElementById("payment").classList.add("hidden");
+ document.getElementById("buyerName").value="";
+ document.getElementById("playerId").value="";
+ document.getElementById("buyerContact").value="";
  document.getElementById("utr").value="";
-}
-function showPayment(){
- let name=document.getElementById("buyerName").value.trim();
- let contact=document.getElementById("buyerContact").value.trim();
 
- if(!name||!contact){
-  alert("Please enter your name and WhatsApp number.");
-  return;
- }
-
- document.getElementById("payAmount").textContent=
-  "PAY ₹"+selected.price.toLocaleString("en-IN");
-
- document.getElementById("payment").classList.remove("hidden");
  document.getElementById("paymentActive").classList.remove("hidden");
  document.getElementById("paymentExpired").classList.add("hidden");
+ document.getElementById("payAmount").textContent="PAY ₹"+price.toLocaleString("en-IN");
 
  startTimer();
 }
@@ -253,11 +228,9 @@ function startTimer(){
  stopTimer();
  secondsLeft=600;
  updateTimer();
-
  timerInterval=setInterval(()=>{
   secondsLeft--;
   updateTimer();
-
   if(secondsLeft<=0){
    stopTimer();
    document.getElementById("paymentActive").classList.add("hidden");
@@ -273,17 +246,18 @@ function updateTimer(){
 }
 function submitPayment(){
  if(secondsLeft<=0){
-  alert("Payment time expired. Please place a new order.");
+  alert("Payment session expired. Please select a product again.");
   return;
  }
-
+ let name=document.getElementById("buyerName").value.trim();
+ let contact=document.getElementById("buyerContact").value.trim();
  let utr=document.getElementById("utr").value.trim();
- if(!utr){
-  alert("Please enter your UPI payment reference number.");
+
+ if(!name||!contact||!utr){
+  alert("Please enter your name, WhatsApp number and payment reference.");
   return;
  }
-
- alert("Payment details submitted. The store owner must verify the payment before confirming your order.");
+ alert("Payment details submitted. Payment must be verified by the store owner before confirming the order.");
 }
 </script>
 </body>
